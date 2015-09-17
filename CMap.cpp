@@ -40,6 +40,9 @@ Map::Map(std::vector< std::vector < int > > *inputCells) {
 #pragma mark - Destructor
 
 Map::~Map() {
+    for (int i = 0; i < xSize; ++i) {
+        delete &((*cells)[i]);
+    }
     delete cells;
 }
 

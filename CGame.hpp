@@ -16,14 +16,14 @@ class Game {
 private:
     Map *map;
 public:
-    // constructors
+    
     Game();
     Game(Map *inputMap);
     
-    // destructor
+
     ~Game();
     
-    // methods
+
     bool makeStep();
 };
 
