@@ -57,3 +57,12 @@ const size_t Map::sizeOnXaxis() const {
 const size_t Map::sizeOnYaxis() const {
     return ySize;
 }
+
+#pragma mark - Overload
+
+std::vector< int > &Map::operator[](int i) {
+    if (i >= xSize) {
+        throw std::out_of_range("index is out of range");
+    }
+    return (*cells)[i];
+}

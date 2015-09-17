@@ -31,6 +31,9 @@ public:
     const std::pair<size_t, size_t> size() const; // returs xSize, ySize pair
     const size_t sizeOnXaxis() const;             // returs xSize
     const size_t sizeOnYaxis() const;             // returs ySize
+    
+    //overload
+    std::vector< int > &operator[](int i);
 };
 
 #endif /* CMap_hpp */
