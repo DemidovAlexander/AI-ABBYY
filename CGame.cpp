@@ -19,6 +19,7 @@ Game::Game(Map *inputMap) {
     if (inputMap == NULL) {
         throw std::invalid_argument("inputMap must NOT be NULL");
     }
+    map = inputMap;
 }
 
 #pragma mark - Destructor
