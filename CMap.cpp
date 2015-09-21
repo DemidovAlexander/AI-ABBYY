@@ -28,13 +28,19 @@ Map::Map(const size_t xSize, const size_t ySize): xSize(xSize), ySize(ySize) {
     }
 }
 
-Map::Map(std::vector< std::vector < int > > *inputCells) {
+Map::Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair< int, int > > *inputFinishPoints) {
     if (inputCells == NULL) {
         throw std::invalid_argument("inputCells must NOT be NULL");
     }
+    if (inputFinishPoints == NULL) {
+        throw std::invalid_argument("inputFinishPoints must NOT be NULL");
+    }
+    
     xSize = inputCells->size();
     ySize = inputCells[0].size();
     cells = inputCells;
+    
+    finishPoints = inputFinishPoints;
 }
 
 #pragma mark - Destructor

@@ -15,11 +15,17 @@ Game::Game() {
     map = new Map();
 }
 
-Game::Game(Map *inputMap) {
+Game::Game(Map *inputMap, int numberOfPlayers) {
     if (inputMap == NULL) {
         throw std::invalid_argument("inputMap must NOT be NULL");
     }
+    if (numberOfPlayers < 0) {
+        throw std::invalid_argument("amount of players with AI must NOT be negative");
+    }
+    
     map = inputMap;
+    players = new std::vector< PlayerState >;
+    players->resize(numberOfPlayers);
 }
 
 #pragma mark - Destructor

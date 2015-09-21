@@ -18,15 +18,15 @@ private:
     size_t xSize;
     size_t ySize;
     
+    std::vector< std::pair< int, int > > *finishPoints;
+    
 public:
     
     Map();
     Map(const size_t xSize, const size_t ySize);
-    Map(std::vector< std::vector < int > > *inputCells);
-    
+    Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair< int, int > > *inputFinishPoints);
     
     ~Map();
-    
     
     const std::pair<size_t, size_t> size() const; // returs xSize, ySize pair
     const size_t sizeOnXaxis() const;             // returs xSize

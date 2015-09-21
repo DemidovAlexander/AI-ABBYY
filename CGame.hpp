@@ -11,16 +11,17 @@
 
 #include <iostream>
 #include "CMap.hpp"
+#include "CPlayerState.cpp"
 
 class Game {
 private:
     Map *map;
+    std::vector< PlayerState > *players;
 public:
     
     Game();
-    Game(Map *inputMap);
+    Game(Map *inputMap, int numberOfPlayers);
     
-
     ~Game();
     
 
