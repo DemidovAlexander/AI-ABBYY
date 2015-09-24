@@ -1,0 +1,14 @@
+//
+// Created by evgeny on 21.09.15.
+//
+
+#ifndef AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
+#define AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
+
+
+class CDynamicProgrammingStrategy {
+
+};
+
+
+#endif //AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
