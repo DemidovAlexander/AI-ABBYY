@@ -67,6 +67,14 @@ const size_t Map::sizeOnYaxis() const {
     return ySize;
 }
 
+bool Map::canPlayerStayOnCell(int x, int y) {
+    if ((*cells)[x][y] == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 #pragma mark - Overload
 
 std::vector< int > &Map::operator[](int i) {

@@ -33,6 +33,8 @@ public:
     const size_t sizeOnYaxis() const;             // returs ySize
     
     std::vector< int > &operator[](int i);
+    
+    bool canPlayerStayOnCell(int x, int y);
 };
 
 #endif /* CMap_hpp */

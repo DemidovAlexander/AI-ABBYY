@@ -16,7 +16,7 @@ Game::Game() {
 }
 
 Game::Game(Map *inputMap, int numberOfPlayers) {
-    if (inputMap == NULL) {
+    if (inputMap == nullptr) {
         throw std::invalid_argument("inputMap must NOT be NULL");
     }
     if (numberOfPlayers < 0) {
