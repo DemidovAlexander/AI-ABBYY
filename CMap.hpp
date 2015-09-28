@@ -10,21 +10,24 @@
 #define CMap_hpp
 
 #include <iostream>
+#include <memory>
 #include <vector>
+#include "CPlayerState.hpp"
 
 class Map {
 private:
-    std::vector< std::vector < int > > *cells;
+    std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > cells;
     size_t xSize;
     size_t ySize;
     
-    std::vector< std::pair< int, int > > *finishPoints;
+    std::shared_ptr< std::vector< std::pair< int, int > > > finishPoints;
     
 public:
     
     Map();
     Map(const size_t xSize, const size_t ySize);
-    Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair< int, int > > *inputFinishPoints);
+    Map(std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > inputCells,
+        std::shared_ptr< std::vector< std::pair< int, int > > > inputFinishPoints);
     
     ~Map();
     
@@ -34,7 +37,14 @@ public:
     
     std::vector< int > &operator[](int i);
     
-    bool canPlayerStayOnCell(int x, int y);
+    bool canPlayerStayOnCell(int x, int y) const;
+    
+    // methods for testing
+    
+    // only for default size map!
+    void fillMapWithTestData();
+    
+    void print(std::shared_ptr< std::vector< PlayerState > > players);
 };
 
 #endif /* CMap_hpp */
