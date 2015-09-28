@@ -24,6 +24,11 @@ PlayerState::PlayerState(std::pair< int, int > startPosition) {
     velocityVector = std::make_pair(0, 0);
 }
 
+PlayerState::PlayerState(int x, int y, int xVelocity, int yVelocity) {
+    position = std::make_pair(x, y);
+    velocityVector = std::make_pair(xVelocity, yVelocity);
+}
+
 #pragma mark - Destructor
 
 PlayerState::~PlayerState() {
@@ -52,3 +57,20 @@ void PlayerState::dropVelocityVector() {
     velocityVector.first = 0;
     velocityVector.second = 0;
 }
+
+int PlayerState::GetXVelocity() const {
+    return velocityVector.first;
+}
+
+int PlayerState::GetYVelocity() const {
+    return velocityVector.second;
+}
+
+int PlayerState::GetX() const {
+    return position.first;
+}
+
+int PlayerState::GetY() const {
+    return position.second;
+}
+
