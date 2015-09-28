@@ -10,17 +10,18 @@
 #define CGame_hpp
 
 #include <iostream>
+#include <memory>
 #include "CMap.hpp"
 #include "CPlayerState.hpp"
 
 class Game {
 private:
-    Map *map;
-    std::vector< PlayerState > *players;
+    std::shared_ptr< Map > map;
+    std::shared_ptr< std::vector< PlayerState > > players;
 public:
     
     Game();
-    Game(Map *inputMap, int numberOfPlayers);
+    Game(std::shared_ptr< Map > inputMap, int numberOfPlayers);
     
     ~Game();
     

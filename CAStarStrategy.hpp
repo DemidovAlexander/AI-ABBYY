@@ -10,6 +10,7 @@
 #define CAStarStrategy_hpp
 
 #include <iostream>
+#include <memory>
 #include "CPriorityQueueExtension.hpp"
 #include <set>
 #include "CMap.hpp"
@@ -43,23 +44,23 @@ struct SNode {
     // Least cost of arrival to this node
     float g;
     
-    SNode *parent;
+    std::shared_ptr< SNode > parent;
 };
 
 class AStarStrategy {
-public:
-    Map *map;
-    
-    std::set< SNode * > *closed;
-    PriorityQueueExtension< SNode* > *open;
-    
-    float calculateEstimateHeuristicCost(SNode *current, SNode *finish);
-    
 private:
+    std::unique_ptr< Map > map;
+    
+    std::unique_ptr< std::set< std::shared_ptr< SNode > > > closed;
+    std::unique_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > > open;
+    
+    float calculateEstimateHeuristicCost(std::shared_ptr< SNode > current, std::shared_ptr< SNode > finish);
+    
+public:
     
     AStarStrategy();
-    std::set< SNode * > reachableNodesFromNode( SNode *current );
-    bool AStar(SNode *start, SNode *finish);
+    std::unique_ptr< std::set< std::shared_ptr< SNode > > > reachableNodesFromNode( std::shared_ptr< SNode > current );
+    bool aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode > finish);
     
     EMovementDirection nextStep();
     

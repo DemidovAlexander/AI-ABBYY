@@ -15,20 +15,20 @@
 #pragma mark - Constructors
 
 Map::Map(): xSize(DEFAULT_X_SIZE), ySize(DEFAULT_Y_SIZE) {
-    cells = new std::vector< std::vector< int > >(DEFAULT_X_SIZE);
+    cells = std::shared_ptr < std::vector< std::shared_ptr< std::vector< int > > > > (new std::vector< std::shared_ptr< std::vector< int > > >(DEFAULT_X_SIZE));
     for (int i = 0; i < xSize; ++i) {
-        (*cells)[i] = *new std::vector< int >(DEFAULT_Y_SIZE);
+        (*cells)[i] = std::shared_ptr< std::vector< int > > (new std::vector< int >(DEFAULT_Y_SIZE));
     }
 }
 
 Map::Map(const size_t xSize, const size_t ySize): xSize(xSize), ySize(ySize) {
-    cells = new std::vector< std::vector< int > >(xSize);
+    cells = std::shared_ptr < std::vector< std::shared_ptr< std::vector< int > > > > (new std::vector< std::shared_ptr< std::vector< int > > >(xSize));
     for (int i = 0; i < xSize; ++i) {
-        (*cells)[i] = *new std::vector< int >(ySize);
+        (*cells)[i] = std::shared_ptr< std::vector< int > > (new std::vector< int >(ySize));
     }
 }
 
-Map::Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair< int, int > > *inputFinishPoints) {
+Map::Map(std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > inputCells, std::shared_ptr< std::vector< std::pair< int, int > > > inputFinishPoints) {
     if (inputCells == NULL) {
         throw std::invalid_argument("inputCells must NOT be NULL");
     }
@@ -37,7 +37,7 @@ Map::Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair<
     }
     
     xSize = inputCells->size();
-    ySize = inputCells[0].size();
+    ySize = (*inputCells)[0]->size();
     cells = inputCells;
     
     finishPoints = inputFinishPoints;
@@ -46,10 +46,7 @@ Map::Map(std::vector< std::vector < int > > *inputCells, std::vector< std::pair<
 #pragma mark - Destructor
 
 Map::~Map() {
-    for (int i = 0; i < xSize; ++i) {
-        delete &((*cells)[i]);
-    }
-    delete cells;
+    
 }
 
 
@@ -67,12 +64,8 @@ const size_t Map::sizeOnYaxis() const {
     return ySize;
 }
 
-bool Map::canPlayerStayOnCell(int x, int y) {
-    if ((*cells)[x][y] == 0) {
-        return true;
-    } else {
-        return false;
-    }
+bool Map::canPlayerStayOnCell(int x, int y) const {
+    if ((*(*cells)[x])[y] == 0) { return true; } else { return false; }
 }
 
 #pragma mark - Overload
@@ -81,5 +74,5 @@ std::vector< int > &Map::operator[](int i) {
     if (i >= xSize) {
         throw std::out_of_range("index is out of range");
     }
-    return (*cells)[i];
+    return (*(*cells)[i]);
 }

@@ -12,10 +12,10 @@
 #pragma mark - Constructors
 
 Game::Game() {
-    map = new Map();
+    map = std::shared_ptr< Map > (new Map());
 }
 
-Game::Game(Map *inputMap, int numberOfPlayers) {
+Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
     if (inputMap == nullptr) {
         throw std::invalid_argument("inputMap must NOT be NULL");
     }
@@ -24,14 +24,14 @@ Game::Game(Map *inputMap, int numberOfPlayers) {
     }
     
     map = inputMap;
-    players = new std::vector< PlayerState >;
+    players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
     players->resize(numberOfPlayers);
 }
 
 #pragma mark - Destructor
 
 Game::~Game() {
-    delete map;
+    
 }
 
 #pragma mark - Methods
