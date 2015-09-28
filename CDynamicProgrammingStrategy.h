@@ -9,16 +9,12 @@
 #include "CStateArray.h"
 #include <vector>
 #include <queue>
+#include <stack>
 
 class CDynamicProgrammingStrategy {
 private:
     Map map;
-    PlayerState initialState;
-
-    int minXVelocity;
-    int minYVelocity;
-    int maxXVelocity;
-    int maxYVelocity;
+    PlayerState currentState;
 
     const int UNREACHABLE = -1;
 
@@ -26,11 +22,16 @@ private:
     CStateArray minPath;
 
     std::queue<PlayerState> stateQueue;
+    std::stack<PlayerState> optimalPath;
+
+    void calculatePaths();
+    int findMinStepCount(PlayerState *optimalFinish) const;
+    void findOptimalPath();
 
 public:
     CDynamicProgrammingStrategy(const Map &map, const PlayerState &initialState);
 
-    void CalculatePath();
+    PlayerState GetNextStep();
 };
 
 

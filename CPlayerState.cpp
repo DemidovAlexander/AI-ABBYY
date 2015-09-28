@@ -35,6 +35,16 @@ PlayerState::~PlayerState() {
     
 }
 
+#pragma mark - Compare operators
+
+bool PlayerState::operator==(const PlayerState &other) const {
+    return position == other.position && velocityVector == other.velocityVector;
+}
+
+bool PlayerState::operator!=(const PlayerState &other) const {
+    return !(*this == other);
+}
+
 #pragma mark - Methods
 
 void PlayerState::changePosition(std::pair< int, int > inputPosition) {
@@ -80,5 +90,21 @@ std::pair< int, int > PlayerState::getPosition() const {
 
 std::pair< int, int > PlayerState::getVelocityVector() const {
     return velocityVector;
+}
+
+void PlayerState::SetXVelocity(int xVelocity) {
+    velocityVector.first = xVelocity;
+}
+
+void PlayerState::SetYVelocity(int yVelocity) {
+    velocityVector.second = yVelocity;
+}
+
+void PlayerState::SetX(int x) {
+    position.first = x;
+}
+
+void PlayerState::SetY(int y) {
+    position.second = y;
 }
 

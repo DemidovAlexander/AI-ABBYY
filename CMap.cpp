@@ -106,3 +106,7 @@ std::vector< int > &Map::operator[](int i) {
     }
     return (*(*cells)[i]);
 }
+
+const std::shared_ptr<std::vector<std::pair<int, int> > > Map::GetFinishPoints() const {
+    return finishPoints;
+}

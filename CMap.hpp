@@ -38,6 +38,8 @@ public:
     std::vector< int > &operator[](int i);
     
     bool canPlayerStayOnCell(int x, int y) const;
+
+    const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;
     
     // methods for testing
     

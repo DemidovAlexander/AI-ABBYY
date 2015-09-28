@@ -1,13 +1,14 @@
 // Author: Evgeny Chernigovsky
 // Description:
 
+#include <stdexcept>
 #include "CDynamicProgrammingStrategy.h"
 
 
 CDynamicProgrammingStrategy::CDynamicProgrammingStrategy(const Map &_map,
                                                          const PlayerState &_initialState)
     : map(_map)
-    , initialState(_initialState)
+    , currentState(_initialState)
     , minPath(
             _map.sizeOnXaxis(),
             _map.sizeOnYaxis(),
@@ -16,11 +17,14 @@ CDynamicProgrammingStrategy::CDynamicProgrammingStrategy(const Map &_map,
             UNREACHABLE
     )
 {
-    minPath[initialState] = 0;
-    stateQueue.push(initialState);
+    minPath.SetStepCount(currentState, 0);
+    stateQueue.push(currentState);
+
+    calculatePaths();
+    findOptimalPath();
 }
 
-void CDynamicProgrammingStrategy::CalculatePath() {
+void CDynamicProgrammingStrategy::calculatePaths() {
     while (!stateQueue.empty()) {
         PlayerState currentState = stateQueue.front();
 
@@ -38,11 +42,55 @@ void CDynamicProgrammingStrategy::CalculatePath() {
                     continue;
                 }
 
-                if (minPath[newState] == -1 || minPath[newState] > minPath[currentState] + 1) {
-                    minPath[newState] = minPath[currentState] + 1;
+                if (minPath.GetStepCount(newState) == -1 ||
+                        minPath.GetStepCount(newState) > minPath.GetStepCount(currentState) + 1) {
+                    minPath.SetStepCount(newState, minPath.GetStepCount(currentState) + 1);
+                    minPath.SetPreviousState(newState, currentState);
                     stateQueue.push(newState);
                 }
             }
         }
     }
 }
+
+int CDynamicProgrammingStrategy::findMinStepCount(PlayerState *optimalFinish) const {
+    int minStepCount = -1;
+    int x, y;
+
+    for (int i = 0; i < map.GetFinishPoints()->size(); ++i) {
+        x = map.GetFinishPoints()->at(i).first;
+        y = map.GetFinishPoints()->at(i).second;
+        int currentStepCount = minPath.FindMinStepCountToPoint(x, y, optimalFinish);
+
+        if (currentStepCount != -1 && (minStepCount == -1 || currentStepCount < minStepCount)) {
+            minStepCount = currentStepCount;
+            optimalFinish->SetX(x);
+            optimalFinish->SetY(y);
+        }
+    }
+
+    return minStepCount;
+}
+
+void CDynamicProgrammingStrategy::findOptimalPath() {
+    PlayerState optimalFinish;
+    int minStepCount = findMinStepCount(&optimalFinish);
+
+    if (minStepCount == -1) {
+        throw std::runtime_error("Can't find path to finish");
+    }
+
+    PlayerState currentState = optimalFinish;
+    while (currentState != currentState) {
+        optimalPath.push(currentState);
+        currentState = minPath.GetPreviousState(currentState);
+    }
+}
+
+PlayerState CDynamicProgrammingStrategy::GetNextStep() {
+    PlayerState nextPosition = optimalPath.top();
+    optimalPath.pop();
+    return nextPosition;
+}
+
+

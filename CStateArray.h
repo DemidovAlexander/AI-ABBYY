@@ -6,12 +6,14 @@
 
 #include <vector>
 #include <cmath>
+#include <utility>
 #include "CPlayerState.hpp"
 
 
 class CStateArray {
 private:
-    std::vector< std::vector< std::vector< std::vector <int> > > > stateArray;
+    // Возможно стоит заменить на std::unordered_map< PlayerState, std::pair<int, PlayerState> >
+    std::vector< std::vector< std::vector< std::vector < std::pair<int, PlayerState> > > > > stateArray;
 
     int minXVelocity;
     int minYVelocity;
@@ -23,8 +25,13 @@ private:
 public:
     CStateArray(int xSize, int ySize, int xVelocity, int yVelocity, int value);
 
-    int &operator[](const PlayerState &state);
-    const int &operator[](const PlayerState &state) const;
+    int GetStepCount(const PlayerState &state) const;
+    PlayerState GetPreviousState(const PlayerState &state) const;
+
+    void SetStepCount(const PlayerState &state, int value);
+    void SetPreviousState(const PlayerState &state, const PlayerState &previousState);
+
+    int FindMinStepCountToPoint(int x, int y, PlayerState *optimalState) const;
 };
 
 
