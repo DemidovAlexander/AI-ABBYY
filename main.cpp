@@ -24,5 +24,7 @@ int main(int argc, const char * argv[]) {
     finish.position = std::make_pair(29, 29);
     game.testMove(std::make_shared<SNode>(finish));
     
+    //std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
+    
     return 0;
 }

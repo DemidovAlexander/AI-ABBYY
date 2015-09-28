@@ -31,6 +31,17 @@ bool isEqualNodes(const SNode& one, const SNode& two) {
     { return true; } else { return false; }
 }
 
+void printAStarResultPath(std::shared_ptr< SNode > algoFinish, std::shared_ptr< SNode > algoStart) {
+    std::cout << "____________________" << std::endl;
+    std::cout << algoFinish->position.first << " " << algoFinish->position.second << std::endl;
+    std::shared_ptr< SNode > temp = algoFinish;
+    while (!isEqualNodes(*temp, *algoStart)) {
+        std::cout << temp->parent->position.first << " " << temp->parent->position.second << std::endl;
+        temp = temp->parent;
+    }
+    std::cout << "____________________" << std::endl;
+}
+
 #pragma mark - Methods
 
 float AStarStrategy::calculateEstimateHeuristicCost(std::shared_ptr< SNode > current, std::shared_ptr< SNode >finish) {
@@ -84,6 +95,8 @@ bool AStarStrategy::aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode
         
         if ( isEqualNodes(*tempNode, *finish) ) {
             // if equal
+            //std::cout << tempNode->parent->position.first << " " << tempNode->parent->position.second << std::endl;
+            printAStarResultPath(tempNode, start);
             return 1;
         }
         
@@ -126,6 +139,6 @@ EMovementDirection AStarStrategy::nextStep(PlayerState &currentPlayer, std::shar
     SNode currentStart;
     currentStart.position = currentPlayer.getPosition();
     currentStart.velocityVector = currentPlayer.getVelocityVector();
-    std::cout << "ASTAR: " << this->aStar(std::make_shared< SNode > (currentStart), checkPointOrFinish);
+    this->aStar(std::make_shared< SNode > (currentStart), checkPointOrFinish);
     return EMovementDirection(1);
 }

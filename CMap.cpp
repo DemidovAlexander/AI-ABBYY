@@ -88,7 +88,7 @@ void Map::print(std::shared_ptr< std::vector< PlayerState > > players) {
         for (int j = 0; j < ySize; ++j) {
             for (int p = 0; p < players->size(); ++p) {
                 if ((*players)[p].getPosition() == std::make_pair(i, j)) {
-                    std::cout << "P";
+                    std::cout << "*";
                 } else {
                     std::cout << (*(*cells)[i])[j];
                 }
