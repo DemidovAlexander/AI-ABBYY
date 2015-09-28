@@ -19,6 +19,7 @@ public:
     
     PlayerState();
     PlayerState(std::pair< int, int > startPosition);
+    PlayerState(int x, int y, int xVelocity, int yVelocity);
     
     ~PlayerState();
     
@@ -26,7 +27,11 @@ public:
     void changeVelocityVector(std::pair< int, int > inputVelocityVector);
     void changePositionUsingVelocityVector();
     void dropVelocityVector();
-    
+
+    int GetXVelocity() const;
+    int GetYVelocity() const;
+    int GetX() const;
+    int GetY() const;
 };
 
 #endif /* CPlayerState_hpp */

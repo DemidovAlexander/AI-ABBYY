@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "CMap.hpp"
-#include "CPlayerState.cpp"
+#include "CPlayerState.hpp"
 
 class Game {
 private:
