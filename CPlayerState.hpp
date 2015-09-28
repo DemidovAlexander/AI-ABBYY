@@ -32,6 +32,9 @@ public:
     int GetYVelocity() const;
     int GetX() const;
     int GetY() const;
+    
+    std::pair< int, int > getPosition() const;
+    std::pair< int, int > getVelocityVector() const;
 };
 
 #endif /* CPlayerState_hpp */

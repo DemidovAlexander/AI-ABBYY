@@ -6,8 +6,8 @@
 //  Copyright © 2015 Alexander Danilyak. All rights reserved.
 //
 
-#define DEFAULT_X_SIZE 50
-#define DEFAULT_Y_SIZE 50
+#define DEFAULT_X_SIZE 30
+#define DEFAULT_Y_SIZE 30
 
 #include "CMap.hpp"
 #include <stdexcept>
@@ -65,7 +65,37 @@ const size_t Map::sizeOnYaxis() const {
 }
 
 bool Map::canPlayerStayOnCell(int x, int y) const {
+    if (x < 0 || y < 0 || x >= xSize || y >= ySize) { return false; }
     if ((*(*cells)[x])[y] == 0) { return true; } else { return false; }
+}
+
+#pragma mark - Methods for Testing
+
+void Map::fillMapWithTestData() {
+    for (int i = 0; i < DEFAULT_X_SIZE; ++i) {
+        for (int j = 0; j < DEFAULT_Y_SIZE; ++j) {
+            if (i >= 10 && j >= 10 && i < 20 && j < 20) {
+                (*(*cells)[i])[j] = 1;
+            } else {
+                (*(*cells)[i])[j] = 0;
+            }
+        }
+    }
+}
+
+void Map::print(std::shared_ptr< std::vector< PlayerState > > players) {
+    for (int i = 0; i < xSize; ++i) {
+        for (int j = 0; j < ySize; ++j) {
+            for (int p = 0; p < players->size(); ++p) {
+                if ((*players)[p].getPosition() == std::make_pair(i, j)) {
+                    std::cout << "P";
+                } else {
+                    std::cout << (*(*cells)[i])[j];
+                }
+            }
+        }
+        std::cout << std::endl;
+    }
 }
 
 #pragma mark - Overload

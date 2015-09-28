@@ -14,6 +14,7 @@
 #include "CPriorityQueueExtension.hpp"
 #include <set>
 #include "CMap.hpp"
+#include "CPlayerState.hpp"
 
 enum class EMovementDirection : int {
     UP = 1,
@@ -49,21 +50,21 @@ struct SNode {
 
 class AStarStrategy {
 private:
-    std::unique_ptr< Map > map;
+    std::shared_ptr< Map > map;
     
-    std::unique_ptr< std::set< std::shared_ptr< SNode > > > closed;
-    std::unique_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > > open;
+    std::shared_ptr< std::set< std::shared_ptr< SNode > > > closed;
+    std::shared_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > > open;
     
     float calculateEstimateHeuristicCost(std::shared_ptr< SNode > current, std::shared_ptr< SNode > finish);
     
 public:
     
     AStarStrategy();
-    std::unique_ptr< std::set< std::shared_ptr< SNode > > > reachableNodesFromNode( std::shared_ptr< SNode > current );
+    AStarStrategy(std::shared_ptr< Map > inputMap);
+    std::shared_ptr< std::set< std::shared_ptr< SNode > > > reachableNodesFromNode( std::shared_ptr< SNode > current );
     bool aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode > finish);
     
-    EMovementDirection nextStep();
-    
+    EMovementDirection nextStep(PlayerState &currentPlayer, std::shared_ptr< SNode > checkPointOrFinish);
 };
 
 #endif /* CAStarStrategy_hpp */

@@ -74,3 +74,11 @@ int PlayerState::GetY() const {
     return position.second;
 }
 
+std::pair< int, int > PlayerState::getPosition() const {
+    return position;
+}
+
+std::pair< int, int > PlayerState::getVelocityVector() const {
+    return velocityVector;
+}
+

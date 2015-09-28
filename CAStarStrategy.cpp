@@ -16,7 +16,9 @@ AStarStrategy::AStarStrategy() {
     
 }
 
-
+AStarStrategy::AStarStrategy(std::shared_ptr< Map > inputMap):map(inputMap) {
+    
+}
 
 #pragma mark - Destructor
 
@@ -37,9 +39,9 @@ float AStarStrategy::calculateEstimateHeuristicCost(std::shared_ptr< SNode > cur
                     std::abs(current->position.second - finish->position.second));
 }
 
-std::unique_ptr< std::set< std::shared_ptr< SNode > > > AStarStrategy::reachableNodesFromNode( std::shared_ptr< SNode > current ) {
+std::shared_ptr< std::set< std::shared_ptr< SNode > > > AStarStrategy::reachableNodesFromNode( std::shared_ptr< SNode > current ) {
     
-    std::unique_ptr< std::set< std::shared_ptr< SNode > > > result = std::unique_ptr< std::set< std::shared_ptr< SNode > > > (new std::set< std::shared_ptr< SNode > >);
+    std::shared_ptr< std::set< std::shared_ptr< SNode > > > result = std::shared_ptr< std::set< std::shared_ptr< SNode > > > (new std::set< std::shared_ptr< SNode > >);
     
     for (int deltaX = -1; deltaX <= 1; ++deltaX) {
         for (int deltaY = -1; deltaY <= 1; ++deltaY) {
@@ -52,6 +54,8 @@ std::unique_ptr< std::set< std::shared_ptr< SNode > > > AStarStrategy::reachable
                 
                 nextNode->velocityVector = std::make_pair(current->velocityVector.first + deltaX,
                                                           current->velocityVector.second + deltaY);
+                
+                result->insert(nextNode);
             } else {
                 continue;
             }
@@ -67,8 +71,8 @@ bool AStarStrategy::aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode
         throw std::invalid_argument("start and finish must NOT be null");
     }
     
-    closed = std::unique_ptr< std::set< std::shared_ptr< SNode > > > (new std::set< std::shared_ptr< SNode > >);
-    open = std::unique_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > >(new PriorityQueueExtension< std::shared_ptr< SNode > >);
+    closed = std::shared_ptr< std::set< std::shared_ptr< SNode > > > (new std::set< std::shared_ptr< SNode > >);
+    open = std::shared_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > >(new PriorityQueueExtension< std::shared_ptr< SNode > >);
     
     open->push( start );
     start->f = start->g + start->h;
@@ -84,8 +88,10 @@ bool AStarStrategy::aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode
         }
         
         closed->insert( tempNode );
+        std::shared_ptr< std::set< std::shared_ptr< SNode > > > allReachableNodes = this->reachableNodesFromNode(tempNode);
         
-        for (std::shared_ptr< SNode > reachableNode : *(this->reachableNodesFromNode(tempNode))) {
+        for (auto it = allReachableNodes->begin(); it != allReachableNodes->end(); ++it) {
+            std::shared_ptr< SNode > reachableNode = *it;
             
             if (closed->find(reachableNode) != closed->end()) {
                 continue;
@@ -114,4 +120,12 @@ bool AStarStrategy::aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode
         }
     }
     return 0;
+}
+
+EMovementDirection AStarStrategy::nextStep(PlayerState &currentPlayer, std::shared_ptr< SNode > checkPointOrFinish) {
+    SNode currentStart;
+    currentStart.position = currentPlayer.getPosition();
+    currentStart.velocityVector = currentPlayer.getVelocityVector();
+    std::cout << "ASTAR: " << this->aStar(std::make_shared< SNode > (currentStart), checkPointOrFinish);
+    return EMovementDirection(1);
 }

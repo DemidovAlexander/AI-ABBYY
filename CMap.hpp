@@ -12,6 +12,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include "CPlayerState.hpp"
 
 class Map {
 private:
@@ -37,6 +38,13 @@ public:
     std::vector< int > &operator[](int i);
     
     bool canPlayerStayOnCell(int x, int y) const;
+    
+    // methods for testing
+    
+    // only for default size map!
+    void fillMapWithTestData();
+    
+    void print(std::shared_ptr< std::vector< PlayerState > > players);
 };
 
 #endif /* CMap_hpp */
