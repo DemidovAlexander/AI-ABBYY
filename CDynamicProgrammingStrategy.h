@@ -4,17 +4,19 @@
 #ifndef AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
 #define AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
 
+
 #include "CPlayerState.hpp"
 #include "CMap.hpp"
 #include "CStateArray.h"
+#include "CStrategy.h"
 #include <vector>
 #include <queue>
 #include <stack>
 
-class CDynamicProgrammingStrategy {
+class CDynamicProgrammingStrategy : CStrategy {
 private:
     Map map;
-    PlayerState currentState;
+    PlayerState initialState;
 
     const int UNREACHABLE = -1;
 
@@ -31,7 +33,10 @@ private:
 public:
     CDynamicProgrammingStrategy(const Map &map, const PlayerState &initialState);
 
-    PlayerState GetNextStep();
+    std::pair<int, int> GetNextPosition();
+
+    PlayerState GetNextState();
+    bool HasNextState();
 };
 
 

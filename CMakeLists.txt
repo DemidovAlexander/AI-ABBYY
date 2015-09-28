@@ -14,4 +14,4 @@ set(SOURCE_FILES
     main.cpp
 )
 
-add_executable(AI_ABBYY ${SOURCE_FILES})
+add_executable(AI_ABBYY ${SOURCE_FILES} CStrategy.cpp CStrategy.h)

@@ -8,7 +8,7 @@
 CDynamicProgrammingStrategy::CDynamicProgrammingStrategy(const Map &_map,
                                                          const PlayerState &_initialState)
     : map(_map)
-    , currentState(_initialState)
+    , initialState(_initialState)
     , minPath(
             _map.sizeOnXaxis(),
             _map.sizeOnYaxis(),
@@ -17,8 +17,8 @@ CDynamicProgrammingStrategy::CDynamicProgrammingStrategy(const Map &_map,
             UNREACHABLE
     )
 {
-    minPath.SetStepCount(currentState, 0);
-    stateQueue.push(currentState);
+    minPath.SetStepCount(initialState, 0);
+    stateQueue.push(initialState);
 
     calculatePaths();
     findOptimalPath();
@@ -37,8 +37,9 @@ void CDynamicProgrammingStrategy::calculatePaths() {
                         currentState.GetYVelocity() + yDeviation
                 );
 
-                if (newState.GetX() < 0 || newState.GetX() > map.sizeOnXaxis() ||
-                        newState.GetY() < 0 || newState.GetY() > map.sizeOnYaxis()) {
+                // TODO Добавить проверку корректности хода
+                if (newState.GetX() < 0 || newState.GetX() >= map.sizeOnXaxis() ||
+                        newState.GetY() < 0 || newState.GetY() >= map.sizeOnYaxis()) {
                     continue;
                 }
 
@@ -50,6 +51,8 @@ void CDynamicProgrammingStrategy::calculatePaths() {
                 }
             }
         }
+
+        stateQueue.pop();
     }
 }
 
@@ -81,16 +84,24 @@ void CDynamicProgrammingStrategy::findOptimalPath() {
     }
 
     PlayerState currentState = optimalFinish;
-    while (currentState != currentState) {
+    while (currentState != initialState) {
         optimalPath.push(currentState);
         currentState = minPath.GetPreviousState(currentState);
     }
 }
 
-PlayerState CDynamicProgrammingStrategy::GetNextStep() {
-    PlayerState nextPosition = optimalPath.top();
+std::pair<int, int> CDynamicProgrammingStrategy::GetNextPosition() {
+    PlayerState nextState = optimalPath.top();
     optimalPath.pop();
-    return nextPosition;
+    return std::make_pair(nextState.GetY(), nextState.GetY());
 }
 
+PlayerState CDynamicProgrammingStrategy::GetNextState() {
+    PlayerState nextState = optimalPath.top();
+    optimalPath.pop();
+    return nextState;
+}
 
+bool CDynamicProgrammingStrategy::HasNextState() {
+    return !optimalPath.empty();
+}

@@ -55,7 +55,8 @@ int CStateArray::FindMinStepCountToPoint(int x, int y, PlayerState *optimalState
 
     for (int xVelocity = minXVelocity; xVelocity < maxXVelocity; ++xVelocity) {
         for (int yVelocity = minYVelocity; yVelocity < maxYVelocity; ++yVelocity) {
-            int currentStateStepCount = stateArray[x][y][xVelocity][yVelocity].first;
+            int currentStateStepCount =
+                    stateArray[x][y][xVelocity - minYVelocity][yVelocity - minYVelocity].first;
             if (currentStateStepCount != -1 &&
                     (minStepCount == -1 || minStepCount > currentStateStepCount)) {
                 minStepCount = currentStateStepCount;

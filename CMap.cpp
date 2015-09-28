@@ -81,6 +81,9 @@ void Map::fillMapWithTestData() {
             }
         }
     }
+
+    finishPoints = std::make_shared< std::vector< std::pair< int, int > > >();
+    finishPoints->push_back(std::make_pair(DEFAULT_X_SIZE - 1, DEFAULT_Y_SIZE -1));
 }
 
 void Map::print(std::shared_ptr< std::vector< PlayerState > > players) {
