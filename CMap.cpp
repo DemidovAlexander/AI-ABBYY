@@ -86,6 +86,21 @@ void Map::fillMapWithTestData() {
     finishPoints->push_back(std::make_pair(DEFAULT_X_SIZE - 1, DEFAULT_Y_SIZE -1));
 }
 
+void Map::fillMapWithTestData2() {
+    for (int i = 0; i < DEFAULT_X_SIZE; ++i) {
+        for (int j = 0; j < DEFAULT_Y_SIZE; ++j) {
+            if (i >= 10 && j >= 10 && i < 14 && j < 14) {
+                (*(*cells)[i])[j] = 1;
+            } else {
+                (*(*cells)[i])[j] = 0;
+            }
+        }
+    }
+    
+    finishPoints = std::make_shared< std::vector< std::pair< int, int > > >();
+    finishPoints->push_back(std::make_pair(DEFAULT_X_SIZE - 1, DEFAULT_Y_SIZE -1));
+}
+
 void Map::print(std::shared_ptr< std::vector< PlayerState > > players) {
     for (int i = 0; i < xSize; ++i) {
         for (int j = 0; j < ySize; ++j) {

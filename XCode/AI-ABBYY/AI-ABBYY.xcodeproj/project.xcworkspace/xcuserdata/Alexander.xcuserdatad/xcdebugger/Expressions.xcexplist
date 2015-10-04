@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "AStarStrategy::nextStep(PlayerState&amp;, std::__1::shared_ptr&lt;SNode&gt;):CAStarStrategy.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "aStarTest():main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "AStarStrategy::aStar(std::__1::shared_ptr&lt;SNode&gt;, std::__1::shared_ptr&lt;SNode&gt;):CAStarStrategy.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "*tempNode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

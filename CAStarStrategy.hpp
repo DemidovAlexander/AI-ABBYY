@@ -35,6 +35,17 @@ struct SNode {
     float g;
     
     std::shared_ptr< SNode > parent;
+    
+    SNode() {
+        position = std::make_pair(0, 0);
+        velocityVector = std::make_pair(0, 0);
+    }
+    
+    SNode(int x, int y, int velocityX, int velocityY):
+    position(std::make_pair(x, y)),
+    velocityVector(std::make_pair(velocityX, velocityY)) {
+        
+    }
 };
 
 class AStarStrategy {

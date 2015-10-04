@@ -52,7 +52,7 @@ bool Game::makeStep() {
 #pragma mark - Methods for Testing
 
 void Game::fillWithTestData() {
-    map->fillMapWithTestData();
+    map->fillMapWithTestData2();
 }
 
 void Game::printMap() {

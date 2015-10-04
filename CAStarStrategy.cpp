@@ -90,6 +90,7 @@ bool AStarStrategy::aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode
     start->parent = start;
     
     while (open->size() != 0) {
+        std::cout << "**** " << open->size() << std::endl;
         std::shared_ptr< SNode > tempNode = open->top();
         open->pop();
         

@@ -45,6 +45,7 @@ public:
     
     // only for default size map!
     void fillMapWithTestData();
+    void fillMapWithTestData2();
     
     void print(std::shared_ptr< std::vector< PlayerState > > players);
 };
