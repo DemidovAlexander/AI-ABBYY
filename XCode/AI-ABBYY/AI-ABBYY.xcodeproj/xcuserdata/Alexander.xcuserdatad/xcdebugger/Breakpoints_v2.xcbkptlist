@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
-            timestampString = "465684230.093935"
+            timestampString = "466197980.080875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "AStarStrategy::aStar(std::shared_ptr&lt; SNode &gt; start, std::shared_ptr&lt; SNode &gt; finish)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "AStarStrategy::aStar(SNode&amp; start, SNode&amp; finish)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
-            timestampString = "465138103.004547"
+            timestampString = "466188581.96582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "AStarStrategy::reachableNodesFromNode( std::shared_ptr&lt; SNode &gt; current )"
+            landmarkName = "AStarStrategy::reachableNodesFromNode( SNode&amp; current )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
-            timestampString = "465684230.093935"
+            timestampString = "466197980.080875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "AStarStrategy::aStar(std::shared_ptr&lt; SNode &gt; start, std::shared_ptr&lt; SNode &gt; finish)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "AStarStrategy::aStar(SNode&amp; start, SNode&amp; finish)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,19 +74,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
-            timestampString = "465684230.093935"
+            timestampString = "466197980.080875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "AStarStrategy::aStar(std::shared_ptr&lt; SNode &gt; start, std::shared_ptr&lt; SNode &gt; finish)"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "AStarStrategy::aStar(SNode&amp; start, SNode&amp; finish)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "printAStarResultPath(std::shared_ptr&lt; SNode &gt; algoFinish, std::shared_ptr&lt; SNode &gt; algoStart)"
+            landmarkName = "printAStarResultPath(SNode&amp; algoFinish, SNode&amp; algoStart)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -118,16 +118,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../CAStarStrategy.cpp"
+            timestampString = "466197980.080875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "AStarStrategy::nextStep(PlayerState &amp;currentPlayer, SNode&amp; checkPointOrFinish)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../CAStarStrategy.cpp"
-            timestampString = "465684230.093935"
+            timestampString = "466197059.525889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "AStarStrategy::nextStep(PlayerState &amp;currentPlayer, std::shared_ptr&lt; SNode &gt; checkPointOrFinish)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "AStarStrategy::aStar(SNode&amp; start, SNode&amp; finish)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../CAStarStrategy.cpp"
+            timestampString = "466197980.080875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "AStarStrategy::nextStep(PlayerState &amp;currentPlayer, SNode&amp; checkPointOrFinish)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../CAStarStrategy.cpp"
+            timestampString = "466197677.902024"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "AStarStrategy::aStar(SNode&amp; start, SNode&amp; finish)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../CAStarStrategy.cpp"
+            timestampString = "466199302.447933"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "AStarStrategy::reachableNodesFromNode( SNode&amp; current )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

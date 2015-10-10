@@ -14,7 +14,7 @@
 #include "CPriorityQueueExtension.hpp"
 #include <set>
 #include "CMap.hpp"
-#include "CPlayerState.hpp"
+//#include "CPlayerState.hpp"
 #include "EMoveDirection.h"
 
 struct SNode {
@@ -34,17 +34,64 @@ struct SNode {
     // Least cost of arrival to this node
     float g;
     
-    std::shared_ptr< SNode > parent;
+    SNode* parent;
+    
+    inline bool operator== (const SNode& node) const {
+        if (this->position.first == node.position.first && this->position.second == node.position.second)
+        { return true; } else { return false; }
+    }
+    
+    inline bool operator< (const SNode& node) {
+        if (this->position.first < node.position.first) {
+            return true;
+        } else if (this->position.first > node.position.first) {
+            return false;
+        } else {
+            if (this->position.first < node.position.second) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
     
     SNode() {
         position = std::make_pair(0, 0);
         velocityVector = std::make_pair(0, 0);
+        pathLength = 0;
+        h = 0.0;
+        f = 0.0;
+        g = 0.0;
+        parent = nullptr;
     }
     
     SNode(int x, int y, int velocityX, int velocityY):
     position(std::make_pair(x, y)),
     velocityVector(std::make_pair(velocityX, velocityY)) {
-        
+        pathLength = 0;
+        h = 0.0;
+        f = 0.0;
+        g = 0.0;
+        parent = nullptr;
+    }
+};
+
+class Comparator {
+public:
+    bool operator() (const SNode& one, const SNode& two) const {
+        //if (one.position.first == two.position.first && one.position.second == two.position.second)
+        //{ return true; } else { return false; }
+        if (one.position.first < two.position.first) {
+            return true;
+        } else if (one.position.first > two.position.first) {
+            return false;
+        } else {
+            if (one.position.first < two.position.second) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 };
 
@@ -52,19 +99,19 @@ class AStarStrategy {
 private:
     std::shared_ptr< Map > map;
     
-    std::shared_ptr< std::set< std::shared_ptr< SNode > > > closed;
-    std::shared_ptr< PriorityQueueExtension< std::shared_ptr< SNode > > > open;
+    std::shared_ptr< std::set< SNode, Comparator > > closed;
+    std::shared_ptr< PriorityQueueExtension< SNode > > open;
     
-    float calculateEstimateHeuristicCost(std::shared_ptr< SNode > current, std::shared_ptr< SNode > finish);
+    float calculateEstimateHeuristicCost(SNode& current, SNode& finish);
     
 public:
     
     AStarStrategy();
     AStarStrategy(std::shared_ptr< Map > inputMap);
-    std::shared_ptr< std::set< std::shared_ptr< SNode > > > reachableNodesFromNode( std::shared_ptr< SNode > current );
-    bool aStar(std::shared_ptr< SNode > start, std::shared_ptr< SNode > finish);
+    std::shared_ptr< std::set< SNode, Comparator > > reachableNodesFromNode( SNode& current );
+    bool aStar(SNode& start, SNode&  finish);
     
-    EMovementDirection nextStep(PlayerState &currentPlayer, std::shared_ptr< SNode > checkPointOrFinish);
+    EMovementDirection nextStep(PlayerState &currentPlayer, SNode& checkPointOrFinish);
 };
 
 #endif /* CAStarStrategy_hpp */

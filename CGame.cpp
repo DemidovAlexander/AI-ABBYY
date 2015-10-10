@@ -59,6 +59,6 @@ void Game::printMap() {
     map->print(players);
 }
 
-void Game::testMove(std::shared_ptr< SNode > finish) {
+void Game::testMove(SNode& finish) {
     aStarStrategy->nextStep((*players)[0], finish);
 }

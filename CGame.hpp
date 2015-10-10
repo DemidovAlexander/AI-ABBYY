@@ -11,8 +11,8 @@
 
 #include <iostream>
 #include <memory>
-#include "CMap.hpp"
-#include "CPlayerState.hpp"
+//#include "CMap.hpp"
+//#include "CPlayerState.hpp"
 #include "CAStarStrategy.hpp"
 
 class Game {
@@ -33,7 +33,7 @@ public:
     
     void fillWithTestData();
     void printMap();
-    void testMove(std::shared_ptr< SNode > finish);
+    void testMove(SNode& finish);
 };
 
 #endif /* CGame_hpp */
