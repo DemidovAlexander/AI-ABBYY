@@ -8,23 +8,38 @@
 
 #include <iostream>
 #include "CGame.hpp"
-#include "CPlayerState.hpp"
-#include "CDynamicProgrammingStrategy.h"
+//#include "CPlayerState.hpp"
+//#include "CDynamicProgrammingStrategy.h"
 
 void aStarTest() {
     PlayerState player1(std::make_pair(0, 0));
 
+    //player1.changeVelocityVector(std::make_pair(1, 4));
+    
     Game game;
     game.fillWithTestData();
     game.addPlayer(player1);
 
     game.printMap();
-
-    SNode finish;
-    finish.position = std::make_pair(29, 29);
-    game.testMove(std::make_shared<SNode>(finish));
+    /*
+    SNode checkPoint1(7, 18, 0, 0);
+    game.testMove(std::make_shared< SNode >(checkPoint1));
+    std::cout << checkPoint1.parent->position.first << " " << checkPoint1.parent->position.second << std::endl;
+    
+    SNode checkPoint2(22, 15, 0, 0);
+    game.testMove(std::make_shared< SNode >(checkPoint2));
+    std::cout << checkPoint2.parent->position.first << " " << checkPoint2.parent->position.second << std::endl;
+    
+    SNode finish(5, 15, 0, 0);
+    game.testMove(std::make_shared< SNode >(finish));
+    std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
+     */
+    SNode finish1(23,25,0,0);
+    game.testMove(std::make_shared< SNode >(finish1));
+    //SNode finish2(21,14,0,0);
+    //game.testMove(std::make_shared< SNode >(finish2));
 }
-
+/*
 void dynamicProgrammingTest() {
     Map map;
     map.fillMapWithTestData();
@@ -44,14 +59,12 @@ void dynamicProgrammingTest() {
         std::cout << currentState.GetX() << ' ' << currentState.GetY() << std::endl;
     }
 }
-
+*/
 int main(int argc, const char * argv[]) {
     
-    dynamicProgrammingTest();
+    //dynamicProgrammingTest();
 
     //aStarTest();
-    
-    //std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
     
     return 0;
 }

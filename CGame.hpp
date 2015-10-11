@@ -11,23 +11,21 @@
 
 #include <iostream>
 #include <memory>
-#include "CMap.hpp"
 #include "CPlayerState.hpp"
-#include "CAStarStrategy.hpp"
+#include "CAStarStrategyOnYAGSBPL.hpp"
 
 class Game {
 private:
     std::shared_ptr< Map > map;
     std::shared_ptr< std::vector< PlayerState > > players;
-    std::shared_ptr< AStarStrategy > aStarStrategy;
+    std::shared_ptr< AStarStrategyOnYAGSBPL > aStarStrategyOnYAGSBPL;
 public:
     Game();
     Game(std::shared_ptr< Map > inputMap, int numberOfPlayers);
     
-    ~Game();
-    
     void addPlayer(PlayerState newPlayer);
-    bool makeStep();
+    
+    EMovementDirection nextMoveForPlayer(int playerID);
     
     //methods for testing
     

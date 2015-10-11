@@ -38,6 +38,7 @@ public:
     std::vector< int > &operator[](int i);
     
     bool canPlayerStayOnCell(int x, int y) const;
+    bool canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int dY) const;
 
     const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;
     
@@ -45,6 +46,7 @@ public:
     
     // only for default size map!
     void fillMapWithTestData();
+    void fillMapWithTestData2();
     
     void print(std::shared_ptr< std::vector< PlayerState > > players);
 };

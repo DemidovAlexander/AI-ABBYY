@@ -7,14 +7,19 @@
 //
 
 #include "CGame.hpp"
+#include "CAStarStrategyOnYAGSBPL.hpp"
 #include <stdexcept>
+
+// I had to do this, sorry :(
+std::shared_ptr< Map > aStarStaticMap;
 
 #pragma mark - Constructors
 
 Game::Game() {
     map = std::shared_ptr< Map > (new Map());
+    aStarStaticMap = map;
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
-    aStarStrategy = std::shared_ptr< AStarStrategy > (new AStarStrategy(map));
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > ();
 }
 
 Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
@@ -26,16 +31,11 @@ Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
     }
     
     map = inputMap;
+    aStarStaticMap = map;
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
     players->resize(numberOfPlayers);
     
-    aStarStrategy = std::shared_ptr< AStarStrategy > (new AStarStrategy(map));
-}
-
-#pragma mark - Destructor
-
-Game::~Game() {
-    
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > ();
 }
 
 #pragma mark - Methods
@@ -44,9 +44,8 @@ void Game::addPlayer(PlayerState newPlayer) {
     players->push_back(newPlayer);
 }
 
-bool Game::makeStep() {
-    // TO DO
-    return true;
+EMovementDirection nextMoveForPlayer(int playerID) {
+    return EMovementDirection::NONE;
 }
 
 #pragma mark - Methods for Testing
@@ -60,5 +59,10 @@ void Game::printMap() {
 }
 
 void Game::testMove(std::shared_ptr< SNode > finish) {
-    aStarStrategy->nextStep((*players)[0], finish);
+    //aStarStrategy->nextStep((*players)[0], finish);
+    SNode start;
+    start.position = std::make_pair((*players)[0].GetX(), (*players)[0].GetY());
+    aStarStrategyOnYAGSBPL->searchPath(start, *finish);
 }
+
+
