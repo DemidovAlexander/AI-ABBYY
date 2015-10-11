@@ -68,6 +68,7 @@ bool Map::canPlayerStayOnCell(int x, int y) const {
     if (x < 0 || y < 0 || x >= xSize || y >= ySize) {
         return false;
     }
+    
     if ((*(*cells)[x])[y] == 0) {
         return true;
     } else {
@@ -75,6 +76,27 @@ bool Map::canPlayerStayOnCell(int x, int y) const {
     }
 }
 
+bool Map::canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< PlayerState > > players) const {
+    if (x < 0 || y < 0 || x >= xSize || y >= ySize) {
+        return false;
+    }
+    
+    for (int i = 0; i < (*players).size(); ++i) {
+        if (i == playerID) {
+            continue;
+        } else {
+            if ((*players)[i].GetX() == x && (*players)[i].GetY() == y) {
+                return false;
+            }
+        }
+    }
+    
+    if ((*(*cells)[x])[y] == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // NOT WORKING 
 bool Map::canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int dY) const {
@@ -134,7 +156,7 @@ bool Map::canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int 
 void Map::fillMapWithTestData() {
     for (int i = 0; i < DEFAULT_X_SIZE; ++i) {
         for (int j = 0; j < DEFAULT_Y_SIZE; ++j) {
-            if (i >= 10 && j >= 10 && i < 20 && j < 20) {
+            if (i >= 10 && j >= 0 && i < 20 && j < 20) {
                 (*(*cells)[i])[j] = 1;
             } else if(i == 15 && j < 20) {
                 (*(*cells)[i])[j] = 1;

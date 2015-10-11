@@ -38,6 +38,7 @@ public:
     std::vector< int > &operator[](int i);
     
     bool canPlayerStayOnCell(int x, int y) const;
+    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< PlayerState > > players) const;
     bool canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int dY) const;
 
     const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;

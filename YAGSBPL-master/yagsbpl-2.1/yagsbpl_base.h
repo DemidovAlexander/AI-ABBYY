@@ -34,7 +34,7 @@
 #include <limits>
 
 #define _yagsbpl_abs(x) ((x)>0?(x):(-x))
-#define _yagsbpl_display_version { if (!YAGSBPL_vDisplay_done) { printf("\n*** You are using YAGSBPL v 2.1. ***\n"); YAGSBPL_vDisplay_done = true; } }
+#define _yagsbpl_display_version { if (!YAGSBPL_vDisplay_done) { /*printf("\n*** You are using YAGSBPL v 2.1. ***\n");*/ YAGSBPL_vDisplay_done = true; } }
 bool YAGSBPL_vDisplay_done = false;
 
 

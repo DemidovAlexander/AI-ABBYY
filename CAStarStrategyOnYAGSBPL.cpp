@@ -63,6 +63,7 @@ void getSuccessors(SNode& node, std::vector<SNode>* s, std::vector<double>* c) {
                                                                             reachableNode.velocityVector.first,
                                                                             reachableNode.velocityVector.second)*/)
             {
+                //std::cout << "ReachableNode: " << reachableNode.position.first << " " << reachableNode.position.second << std::endl;
                 s->push_back(reachableNode);
                 c->push_back(1);
             }
@@ -76,15 +77,15 @@ double getHeuristics(SNode& node1, SNode& node2) {
 
 #pragma mark - Main
 
-void AStarStrategyOnYAGSBPL::searchPath(SNode& start, SNode& finish) {
+SNode AStarStrategyOnYAGSBPL::searchPath(SNode& start, SNode& finish) {
     GenericSearchGraphDescriptor<SNode, double> graph;
     
     graph.getHashBin_fp = &getHashBin;
-    graph.getHeuristics_fp = &getHeuristics;
+    //graph.getHeuristics_fp = &getHeuristics;
     graph.getSuccessors_fp = &getSuccessors;
     graph.isAccessible_fp = &isAccessible;
     
-    graph.hashTableSize = 31;//(int)(map->sizeOnXaxis() * map->sizeOnYaxis()) + 1;
+    graph.hashTableSize = (int)std::max(aStarStaticMap->sizeOnXaxis(), aStarStaticMap->sizeOnYaxis()) + 1;
  
     graph.SeedNode = start;
     graph.TargetNode = finish;
@@ -94,10 +95,20 @@ void AStarStrategyOnYAGSBPL::searchPath(SNode& start, SNode& finish) {
     planner.plan();
     
     std::vector< std::vector< SNode > > paths = planner.getPlannedPaths();
+    /*
     printf("Number of paths: %lu\nPath coordinates: \n[ ", paths.size());
-    for (int a=0; a<paths[0].size(); a++) {
-        printf("[%d, %d]{%d}; ", paths[0][a].position.first, paths[0][a].position.second, paths[0][a].direction);
+    if (paths.size() > 0) {
+        for (int a=0; a<paths[0].size(); a++) {
+            printf("[%d, %d]{%d}; ", paths[0][a].position.first+1, paths[0][a].position.second+1, paths[0][a].direction);
+        }
+        printf(" ]\n\n");
     }
-    printf(" ]\n\n");
-    
+    */
+    if (paths.size() > 0) {
+        int pathSize = (int)paths[0].size();
+        return paths[0][pathSize-2];
+    } else {
+        std::cout << "!!!NO PATH FOUND!!!" << std::endl;
+        return SNode(-1,-1,0,0);
+    }
 }
