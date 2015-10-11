@@ -3,16 +3,44 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AStarStrategy::aStar(std::__1::shared_ptr&lt;SNode&gt;, std::__1::shared_ptr&lt;SNode&gt;):CAStarStrategy.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "*tempNode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HashTableContainer&lt;SNode, double, A_star_variables&lt;double&gt; &gt;::getNodeInHash(SNode):yagsbpl_base.cpp">
+      </ContextState>
+      <ContextState
          contextName = "AStarStrategy::nextStep(PlayerState&amp;, std::__1::shared_ptr&lt;SNode&gt;):CAStarStrategy.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "AStarStrategyOnYAGSBPL::searchPath(SNode&amp;, SNode&amp;):CAStarStrategyOnYAGSBPL.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "aStartStaticMap">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game::Game():CGame.cpp">
       </ContextState>
       <ContextState
          contextName = "aStarTest():main.cpp">
       </ContextState>
       <ContextState
-         contextName = "AStarStrategy::aStar(std::__1::shared_ptr&lt;SNode&gt;, std::__1::shared_ptr&lt;SNode&gt;):CAStarStrategy.cpp">
+         contextName = "Map::canPlayerStayOnCell(int, int) const:CMap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "SNode::operator==(SNode const&amp;):SNode.hpp">
+      </ContextState>
+      <ContextState
+         contextName = "isAccessible(SNode&amp;):CAStarStrategyOnYAGSBPL.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "*tempNode">
+               value = "mapClassSol">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

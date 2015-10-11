@@ -34,7 +34,7 @@ void aStarTest() {
     game.testMove(std::make_shared< SNode >(finish));
     std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
      */
-    SNode finish1(23,17,0,0);
+    SNode finish1(23,25,0,0);
     game.testMove(std::make_shared< SNode >(finish1));
     //SNode finish2(21,14,0,0);
     //game.testMove(std::make_shared< SNode >(finish2));

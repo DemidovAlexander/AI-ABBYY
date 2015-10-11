@@ -10,25 +10,32 @@
 #include "yagsbpl_base.h"
 #include "A_star.h"
 
+extern std::shared_ptr< Map > aStarStaticMap;
+
 #pragma mark - Methods Needed For YAGSBPL
 
 int getHashBin(SNode& node) {
     int nodeSum = node.position.first;
-    //std::hash<int> nodeHash;
-    return nodeSum % 30;//(AStarStrategyOnYAGSBPL::map->sizeOnXaxis() * AStarStrategyOnYAGSBPL::map->sizeOnYaxis());
+    return nodeSum % std::max(aStarStaticMap->sizeOnXaxis(), aStarStaticMap->sizeOnYaxis());
 }
 
 bool isAccessible(SNode& node) {
-    //return AStarStrategyOnYAGSBPL::map->canPlayerStayOnCell(node.position.first, node.position.second);
+    bool mapClassSol = aStarStaticMap->canPlayerStayOnCell(node.position.first, node.position.second);
+    /*bool hardCodeSol;
     int i = node.position.first;
     int j = node.position.second;
-            if (i >= 10 && j >= 10 && i < 20 && j < 20) {
-                return false;
-            } else if (i == 15 && j < 20) {
-                return false;
-            } else {
-                return true;
-            }
+    if (i >= 10 && j >= 10 && i < 20 && j < 20) {
+        hardCodeSol = false;
+    } else if (i == 15 && j < 20) {
+        hardCodeSol = false;
+    } else {
+        hardCodeSol = true;
+    }
+    if (mapClassSol != hardCodeSol) {
+        std::cout << "FUCKING FUCK " << i << " " << j << std::endl;
+    }
+     */
+    return mapClassSol;
 }
 
 void getSuccessors(SNode& node, std::vector<SNode>* s, std::vector<double>* c) {
@@ -47,7 +54,15 @@ void getSuccessors(SNode& node, std::vector<SNode>* s, std::vector<double>* c) {
             
             reachableNode.setDirection(deltaX, deltaY);
             
-            if (reachableNode.position.first > 0 && reachableNode.position.second > 0 && reachableNode.position.first < 30 && reachableNode.position.second < 30) {
+            if (reachableNode.position.first > 0 &&
+                reachableNode.position.second > 0 &&
+                reachableNode.position.first < aStarStaticMap->sizeOnXaxis() &&
+                reachableNode.position.second < aStarStaticMap->sizeOnYaxis() /*&&
+                aStarStaticMap->canPlayerMoveFromThisPositionWithSuchVector(node.position.first,
+                                                                            node.position.second,
+                                                                            reachableNode.velocityVector.first,
+                                                                            reachableNode.velocityVector.second)*/)
+            {
                 s->push_back(reachableNode);
                 c->push_back(1);
             }
@@ -56,18 +71,10 @@ void getSuccessors(SNode& node, std::vector<SNode>* s, std::vector<double>* c) {
 }
 
 double getHeuristics(SNode& node1, SNode& node2) {
-    return abs(node1.position.first - node2.position.first) + abs(node1.position.second - node2.position.second);
+    return std::max(abs(node1.position.first - node2.position.first),abs(node1.position.second - node2.position.second));
 }
 
-#pragma mark - Constructors
-
-AStarStrategyOnYAGSBPL::AStarStrategyOnYAGSBPL() {
-    // TODO:
-}
-
-AStarStrategyOnYAGSBPL::AStarStrategyOnYAGSBPL(std::shared_ptr< Map > inputMap) {
-    //map = inputMap;
-}
+#pragma mark - Main
 
 void AStarStrategyOnYAGSBPL::searchPath(SNode& start, SNode& finish) {
     GenericSearchGraphDescriptor<SNode, double> graph;

@@ -7,14 +7,19 @@
 //
 
 #include "CGame.hpp"
+#include "CAStarStrategyOnYAGSBPL.hpp"
 #include <stdexcept>
+
+// I had to do this, sorry :(
+std::shared_ptr< Map > aStarStaticMap;
 
 #pragma mark - Constructors
 
 Game::Game() {
     map = std::shared_ptr< Map > (new Map());
+    aStarStaticMap = map;
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
-    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > (new AStarStrategyOnYAGSBPL(map));
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > ();
 }
 
 Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
@@ -26,10 +31,11 @@ Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
     }
     
     map = inputMap;
+    aStarStaticMap = map;
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
     players->resize(numberOfPlayers);
     
-    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > (new AStarStrategyOnYAGSBPL(map));
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > ();
 }
 
 #pragma mark - Methods

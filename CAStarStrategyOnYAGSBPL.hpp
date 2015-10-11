@@ -15,19 +15,9 @@
 #include "CMap.hpp"
 #include <functional>
 
-class AStarStrategyOnYAGSBPL {
-private:
-    static std::shared_ptr< Map > map;
-    
+class AStarStrategyOnYAGSBPL {   
 public:
-    //friend int getHashBin(SNode& node);
-    //friend bool isAccessible(SNode& node);
-    
-    AStarStrategyOnYAGSBPL();
-    AStarStrategyOnYAGSBPL(std::shared_ptr< Map > inputMap);
-    
     void searchPath(SNode& start, SNode& finish);
-    
 };
 
 #endif /* CAStarStrategyOnYAGSBPL_hpp */
