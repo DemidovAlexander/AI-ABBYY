@@ -39,8 +39,9 @@ void dynamicProgrammingTest() {
         currentState = strategy.GetNextState();
         vectorPtr->at(0) = currentState;
 
-        map.print(vectorPtr);
-        std::cout << std::endl;
+        // map.print(vectorPtr);
+        // std::cout << std::endl;
+        std::cout << currentState.GetX() << ' ' << currentState.GetY() << std::endl;
     }
 }
 
@@ -48,7 +49,7 @@ int main(int argc, const char * argv[]) {
     
     dynamicProgrammingTest();
 
-    aStarTest();
+    //aStarTest();
     
     //std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
     
