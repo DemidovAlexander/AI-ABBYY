@@ -8,8 +8,8 @@
 
 #include <iostream>
 #include "CGame.hpp"
-#include "CPlayerState.hpp"
-#include "CDynamicProgrammingStrategy.h"
+//#include "CPlayerState.hpp"
+//#include "CDynamicProgrammingStrategy.h"
 
 void aStarTest() {
     PlayerState player1(std::make_pair(0, 0));
@@ -34,12 +34,12 @@ void aStarTest() {
     game.testMove(std::make_shared< SNode >(finish));
     std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
      */
-    SNode finish1(29,29,0,0);
+    SNode finish1(23,17,0,0);
     game.testMove(std::make_shared< SNode >(finish1));
     //SNode finish2(21,14,0,0);
     //game.testMove(std::make_shared< SNode >(finish2));
 }
-
+/*
 void dynamicProgrammingTest() {
     Map map;
     map.fillMapWithTestData();
@@ -58,7 +58,7 @@ void dynamicProgrammingTest() {
         std::cout << std::endl;
     }
 }
-
+*/
 int main(int argc, const char * argv[]) {
     
     //dynamicProgrammingTest();

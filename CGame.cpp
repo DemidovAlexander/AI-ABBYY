@@ -14,7 +14,7 @@
 Game::Game() {
     map = std::shared_ptr< Map > (new Map());
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
-    aStarStrategy = std::shared_ptr< AStarStrategy > (new AStarStrategy(map));
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > (new AStarStrategyOnYAGSBPL(map));
 }
 
 Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
@@ -29,13 +29,7 @@ Game::Game(std::shared_ptr< Map > inputMap, int numberOfPlayers) {
     players = std::shared_ptr< std::vector< PlayerState > > (new std::vector< PlayerState >);
     players->resize(numberOfPlayers);
     
-    aStarStrategy = std::shared_ptr< AStarStrategy > (new AStarStrategy(map));
-}
-
-#pragma mark - Destructor
-
-Game::~Game() {
-    
+    aStarStrategyOnYAGSBPL = std::shared_ptr< AStarStrategyOnYAGSBPL > (new AStarStrategyOnYAGSBPL(map));
 }
 
 #pragma mark - Methods
@@ -44,15 +38,14 @@ void Game::addPlayer(PlayerState newPlayer) {
     players->push_back(newPlayer);
 }
 
-bool Game::makeStep() {
-    // TO DO
-    return true;
+EMovementDirection nextMoveForPlayer(int playerID) {
+    return EMovementDirection::NONE;
 }
 
 #pragma mark - Methods for Testing
 
 void Game::fillWithTestData() {
-    map->fillMapWithTestData2();
+    map->fillMapWithTestData();
 }
 
 void Game::printMap() {
@@ -60,5 +53,10 @@ void Game::printMap() {
 }
 
 void Game::testMove(std::shared_ptr< SNode > finish) {
-    aStarStrategy->nextStep((*players)[0], finish);
+    //aStarStrategy->nextStep((*players)[0], finish);
+    SNode start;
+    start.position = std::make_pair((*players)[0].GetX(), (*players)[0].GetY());
+    aStarStrategyOnYAGSBPL->searchPath(start, *finish);
 }
+
+

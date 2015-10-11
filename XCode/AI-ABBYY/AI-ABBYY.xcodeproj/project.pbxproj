@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112DA5E51BB9529600A8F3D2 /* CAStarStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5D51BB9529600A8F3D2 /* CAStarStrategy.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5E61BB9529600A8F3D2 /* CDynamicProgrammingStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5D71BB9529600A8F3D2 /* CDynamicProgrammingStrategy.cpp */; settings = {ASSET_TAGS = (); }; };
-		112DA5E71BB9529600A8F3D2 /* CGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5D91BB9529600A8F3D2 /* CGame.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5E81BB9529600A8F3D2 /* CMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5DB1BB9529600A8F3D2 /* CMap.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5E91BB9529600A8F3D2 /* CPlayerState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5DD1BB9529600A8F3D2 /* CPlayerState.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5EA1BB9529600A8F3D2 /* CStateArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5E01BB9529600A8F3D2 /* CStateArray.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5EB1BB9529600A8F3D2 /* CVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5E21BB9529600A8F3D2 /* CVector.cpp */; settings = {ASSET_TAGS = (); }; };
 		112DA5EC1BB9529600A8F3D2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5E41BB9529600A8F3D2 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		119F8BA31BCAB0D9009E19E8 /* CGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 112DA5D91BB9529600A8F3D2 /* CGame.cpp */; };
+		119F8BA41BCAB109009E19E8 /* CAStarStrategyOnYAGSBPL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 119F8B991BCA90D1009E19E8 /* CAStarStrategyOnYAGSBPL.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +31,6 @@
 
 /* Begin PBXFileReference section */
 		112DA5CB1BB9525700A8F3D2 /* AI-ABBYY */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "AI-ABBYY"; sourceTree = BUILT_PRODUCTS_DIR; };
-		112DA5D51BB9529600A8F3D2 /* CAStarStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAStarStrategy.cpp; path = ../../../CAStarStrategy.cpp; sourceTree = "<group>"; };
-		112DA5D61BB9529600A8F3D2 /* CAStarStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CAStarStrategy.hpp; path = ../../../CAStarStrategy.hpp; sourceTree = "<group>"; };
 		112DA5D71BB9529600A8F3D2 /* CDynamicProgrammingStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CDynamicProgrammingStrategy.cpp; path = ../../../CDynamicProgrammingStrategy.cpp; sourceTree = "<group>"; };
 		112DA5D81BB9529600A8F3D2 /* CDynamicProgrammingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDynamicProgrammingStrategy.h; path = ../../../CDynamicProgrammingStrategy.h; sourceTree = "<group>"; };
 		112DA5D91BB9529600A8F3D2 /* CGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CGame.cpp; path = ../../../CGame.cpp; sourceTree = "<group>"; };
@@ -41,12 +39,18 @@
 		112DA5DC1BB9529600A8F3D2 /* CMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CMap.hpp; path = ../../../CMap.hpp; sourceTree = "<group>"; };
 		112DA5DD1BB9529600A8F3D2 /* CPlayerState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CPlayerState.cpp; path = ../../../CPlayerState.cpp; sourceTree = "<group>"; };
 		112DA5DE1BB9529600A8F3D2 /* CPlayerState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CPlayerState.hpp; path = ../../../CPlayerState.hpp; sourceTree = "<group>"; };
-		112DA5DF1BB9529600A8F3D2 /* CPriorityQueueExtension.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CPriorityQueueExtension.hpp; path = ../../../CPriorityQueueExtension.hpp; sourceTree = "<group>"; };
 		112DA5E01BB9529600A8F3D2 /* CStateArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CStateArray.cpp; path = ../../../CStateArray.cpp; sourceTree = "<group>"; };
 		112DA5E11BB9529600A8F3D2 /* CStateArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CStateArray.h; path = ../../../CStateArray.h; sourceTree = "<group>"; };
 		112DA5E21BB9529600A8F3D2 /* CVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CVector.cpp; path = ../../../CVector.cpp; sourceTree = "<group>"; };
 		112DA5E31BB9529600A8F3D2 /* CVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CVector.h; path = ../../../CVector.h; sourceTree = "<group>"; };
 		112DA5E41BB9529600A8F3D2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../main.cpp; sourceTree = "<group>"; };
+		119F8B981BCA900C009E19E8 /* SNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SNode.hpp; path = ../../../SNode.hpp; sourceTree = "<group>"; };
+		119F8B991BCA90D1009E19E8 /* CAStarStrategyOnYAGSBPL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAStarStrategyOnYAGSBPL.cpp; path = ../../../CAStarStrategyOnYAGSBPL.cpp; sourceTree = "<group>"; };
+		119F8B9A1BCA90D1009E19E8 /* CAStarStrategyOnYAGSBPL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CAStarStrategyOnYAGSBPL.hpp; path = ../../../CAStarStrategyOnYAGSBPL.hpp; sourceTree = "<group>"; };
+		119F8B9C1BCA976A009E19E8 /* yagsbpl_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = yagsbpl_base.cpp; path = "../../YAGSBPL-master/yagsbpl-2.1/yagsbpl_base.cpp"; sourceTree = "<group>"; };
+		119F8B9D1BCA976A009E19E8 /* yagsbpl_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yagsbpl_base.h; path = "../../YAGSBPL-master/yagsbpl-2.1/yagsbpl_base.h"; sourceTree = "<group>"; };
+		119F8B9E1BCA976A009E19E8 /* A_star.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = A_star.cpp; path = "../../YAGSBPL-master/yagsbpl-2.1/planners/A_star.cpp"; sourceTree = "<group>"; };
+		119F8B9F1BCA976A009E19E8 /* A_star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_star.h; path = "../../YAGSBPL-master/yagsbpl-2.1/planners/A_star.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,16 +83,17 @@
 		112DA5CD1BB9525700A8F3D2 /* AI-ABBYY */ = {
 			isa = PBXGroup;
 			children = (
+				119F8BA21BCA9770009E19E8 /* YAGSBPL */,
 				112DA5ED1BB9598800A8F3D2 /* Evgeny */,
-				112DA5D51BB9529600A8F3D2 /* CAStarStrategy.cpp */,
-				112DA5D61BB9529600A8F3D2 /* CAStarStrategy.hpp */,
+				119F8B991BCA90D1009E19E8 /* CAStarStrategyOnYAGSBPL.cpp */,
+				119F8B9A1BCA90D1009E19E8 /* CAStarStrategyOnYAGSBPL.hpp */,
 				112DA5D91BB9529600A8F3D2 /* CGame.cpp */,
 				112DA5DA1BB9529600A8F3D2 /* CGame.hpp */,
 				112DA5DB1BB9529600A8F3D2 /* CMap.cpp */,
 				112DA5DC1BB9529600A8F3D2 /* CMap.hpp */,
 				112DA5DD1BB9529600A8F3D2 /* CPlayerState.cpp */,
 				112DA5DE1BB9529600A8F3D2 /* CPlayerState.hpp */,
-				112DA5DF1BB9529600A8F3D2 /* CPriorityQueueExtension.hpp */,
+				119F8B981BCA900C009E19E8 /* SNode.hpp */,
 				112DA5E41BB9529600A8F3D2 /* main.cpp */,
 			);
 			path = "AI-ABBYY";
@@ -105,6 +110,18 @@
 				112DA5E31BB9529600A8F3D2 /* CVector.h */,
 			);
 			name = Evgeny;
+			sourceTree = "<group>";
+		};
+		119F8BA21BCA9770009E19E8 /* YAGSBPL */ = {
+			isa = PBXGroup;
+			children = (
+				119F8B9C1BCA976A009E19E8 /* yagsbpl_base.cpp */,
+				119F8B9D1BCA976A009E19E8 /* yagsbpl_base.h */,
+				119F8B9E1BCA976A009E19E8 /* A_star.cpp */,
+				119F8B9F1BCA976A009E19E8 /* A_star.h */,
+			);
+			name = YAGSBPL;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,13 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112DA5E51BB9529600A8F3D2 /* CAStarStrategy.cpp in Sources */,
+				119F8BA41BCAB109009E19E8 /* CAStarStrategyOnYAGSBPL.cpp in Sources */,
+				119F8BA31BCAB0D9009E19E8 /* CGame.cpp in Sources */,
 				112DA5EC1BB9529600A8F3D2 /* main.cpp in Sources */,
 				112DA5EB1BB9529600A8F3D2 /* CVector.cpp in Sources */,
 				112DA5E91BB9529600A8F3D2 /* CPlayerState.cpp in Sources */,
 				112DA5EA1BB9529600A8F3D2 /* CStateArray.cpp in Sources */,
 				112DA5E61BB9529600A8F3D2 /* CDynamicProgrammingStrategy.cpp in Sources */,
-				112DA5E71BB9529600A8F3D2 /* CGame.cpp in Sources */,
 				112DA5E81BB9529600A8F3D2 /* CMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,7 +198,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -223,7 +240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -287,6 +304,7 @@
 				112DA5D41BB9525700A8F3D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

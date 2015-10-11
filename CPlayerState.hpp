@@ -23,8 +23,8 @@ public:
     
     ~PlayerState();
 
-    bool operator==(const PlayerState &other) const;
-    bool operator!=(const PlayerState &other) const;
+    bool operator== (const PlayerState &other) const;
+    bool operator!= (const PlayerState &other) const;
     
     void changePosition(std::pair< int, int > inputPosition);
     void changeVelocityVector(std::pair< int, int > inputVelocityVector);
