@@ -4,7 +4,6 @@ project(AI_ABBYY)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    CAStarStrategy.cpp
     CDynamicProgrammingStrategy.cpp
     CGame.cpp
     CMap.cpp

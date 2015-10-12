@@ -11,6 +11,7 @@
 
 #include "CMap.hpp"
 #include <stdexcept>
+#include <cmath>
 
 #pragma mark - Constructors
 
@@ -76,57 +77,61 @@ bool Map::canPlayerStayOnCell(int x, int y) const {
 }
 
 
-// NOT WORKING 
-bool Map::canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int dY) const {
-    bool isPossible = true;
-    
-    bool isDxNegative = dX < 0;
-    bool isDyNegative = dY < 0;
-    
-    if (isDxNegative && isDyNegative) {
-        for (int i = x ; i >= x + dX; --i) {
-            for (int j = y ; j >= y + dY; --j) {
-                if ((*(*cells)[i])[j] == 1) {
-                    isPossible = false;
-                }
+// MAY WORKING
+bool Map::hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const {
+    if (xFirst > xSecond) {
+        std::swap(xFirst, xSecond);
+        std::swap(yFirst, ySecond);
+    }
+
+    if (xFirst == xSecond) {
+        for (int j = yFirst + 1; j < ySecond; ++j) {
+            if (cells->at(xFirst)->at(j) == FILLED_CELL) {
+                return true;
             }
         }
-        return isPossible;
+
+        return false;
     }
-    
-    if (isDxNegative && !isDyNegative) {
-        for (int i = x ; i >= x + dX; --i) {
-            for (int j = y ; j <= y + dY; ++j) {
-                if ((*(*cells)[i])[j] == 1) {
-                    isPossible = false;
-                }
+
+    int previousYInt = yFirst;
+
+    for (int i = xFirst + 1; i < xSecond; ++i) {
+        double currentY = ((double)(i - xFirst - 0.5)) / (xSecond - xFirst) * (ySecond - yFirst)
+                + yFirst + 0.5;
+        double intPart, fractPart;
+
+        fractPart = modf(currentY, &intPart);
+        int currentYInt = (int)intPart;
+
+        if (fractPart < epsilon && yFirst > ySecond) {
+            --currentYInt;
+        }
+
+        if (fractPart > 1 - epsilon && yFirst < ySecond) {
+            ++currentYInt;
+        }
+
+        for (int j = std::min(previousYInt, currentYInt);
+                j <= std::max(previousYInt, currentYInt); ++j) {
+            if (cells->at(i)->at(j) == FILLED_CELL) {
+                return true;
             }
         }
-        return isPossible;
-    }
-    
-    if (!isDxNegative && isDyNegative) {
-        for (int i = x ; i <= x + dX; ++i) {
-            for (int j = y ; j >= y + dY; --j) {
-                if ((*(*cells)[i])[j] == 1) {
-                    isPossible = false;
-                }
-            }
+
+        previousYInt = currentYInt;
+
+        if (fractPart < epsilon && yFirst > ySecond) {
+            ++previousYInt;
         }
-        return isPossible;
-    }
-    
-    if (!isDxNegative && !isDyNegative) {
-        for (int i = x ; i <= x + dX; ++i) {
-            for (int j = y ; j <= y + dY; ++j) {
-                if ((*(*cells)[i])[j] == 1) {
-                    isPossible = false;
-                }
-            }
+
+        if (fractPart > 1 - epsilon && yFirst < ySecond) {
+            --previousYInt;
         }
-        return isPossible;
+
     }
-    return isPossible;
+
+    return false;
 }
 
 #pragma mark - Methods for Testing

@@ -8,8 +8,7 @@
 
 #include <iostream>
 #include "CGame.hpp"
-//#include "CPlayerState.hpp"
-//#include "CDynamicProgrammingStrategy.h"
+#include "CDynamicProgrammingStrategy.h"
 
 void aStarTest() {
     PlayerState player1(std::make_pair(0, 0));
@@ -39,30 +38,31 @@ void aStarTest() {
     //SNode finish2(21,14,0,0);
     //game.testMove(std::make_shared< SNode >(finish2));
 }
-/*
+
 void dynamicProgrammingTest() {
     Map map;
     map.fillMapWithTestData();
     PlayerState currentState(0, 0, 0, 0);
 
-    CDynamicProgrammingStrategy strategy(map, currentState);
-
     std::shared_ptr< std::vector< PlayerState > > vectorPtr(new std::vector< PlayerState >);
     vectorPtr->push_back(currentState);
+
+    CDynamicProgrammingStrategy strategy(map, currentState);
+    map.print(vectorPtr);
 
     while (strategy.HasNextState()) {
         currentState = strategy.GetNextState();
         vectorPtr->at(0) = currentState;
 
-        // map.print(vectorPtr);
-        // std::cout << std::endl;
+        map.print(vectorPtr);
+        std::cout << std::endl;
         std::cout << currentState.GetX() << ' ' << currentState.GetY() << std::endl;
     }
 }
-*/
+
 int main(int argc, const char * argv[]) {
     
-    //dynamicProgrammingTest();
+    dynamicProgrammingTest();
 
     //aStarTest();
     

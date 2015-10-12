@@ -23,6 +23,9 @@ private:
     std::shared_ptr< std::vector< std::pair< int, int > > > finishPoints;
     
 public:
+    const int EMPTY_CELL = 0;
+    const int FILLED_CELL = 1;
+    const double epsilon = 1e-8;
     
     Map();
     Map(const size_t xSize, const size_t ySize);
@@ -38,7 +41,7 @@ public:
     std::vector< int > &operator[](int i);
     
     bool canPlayerStayOnCell(int x, int y) const;
-    bool canPlayerMoveFromThisPositionWithSuchVector(int x, int y, int dX, int dY) const;
+    bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const;
 
     const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;
     

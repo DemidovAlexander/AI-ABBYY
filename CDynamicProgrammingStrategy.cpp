@@ -37,9 +37,11 @@ void CDynamicProgrammingStrategy::calculatePaths() {
                         currentState.GetYVelocity() + yDeviation
                 );
 
-                // TODO Добавить проверку корректности хода
-                if (newState.GetX() < 0 || newState.GetX() >= map.sizeOnXaxis() ||
-                        newState.GetY() < 0 || newState.GetY() >= map.sizeOnYaxis()) {
+                if (newState.GetX() < 0 || newState.GetX() >= map.sizeOnXaxis()
+                        || newState.GetY() < 0 || newState.GetY() >= map.sizeOnYaxis()
+                        || !map.canPlayerStayOnCell(newState.GetX(), newState.GetY())
+                        || map.hasBarrierOnPath(currentState.GetX(), currentState.GetY(),
+                                newState.GetX(), newState.GetY())) {
                     continue;
                 }
 

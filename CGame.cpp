@@ -62,7 +62,7 @@ void Game::testMove(std::shared_ptr< SNode > finish) {
     //aStarStrategy->nextStep((*players)[0], finish);
     SNode start;
     start.position = std::make_pair((*players)[0].GetX(), (*players)[0].GetY());
-    aStarStrategyOnYAGSBPL->searchPath(start, *finish);
+    // aStarStrategyOnYAGSBPL->searchPath(start, *finish);
 }
 
 
