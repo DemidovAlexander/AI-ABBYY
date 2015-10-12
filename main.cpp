@@ -20,21 +20,19 @@ void aStarTest() {
     game.addPlayer(player1);
 
     game.printMap();
-    /*
-    SNode checkPoint1(7, 18, 0, 0);
-    game.testMove(std::make_shared< SNode >(checkPoint1));
-    std::cout << checkPoint1.parent->position.first << " " << checkPoint1.parent->position.second << std::endl;
+    game.setFinish(29, 29);
     
-    SNode checkPoint2(22, 15, 0, 0);
-    game.testMove(std::make_shared< SNode >(checkPoint2));
-    std::cout << checkPoint2.parent->position.first << " " << checkPoint2.parent->position.second << std::endl;
     
-    SNode finish(5, 15, 0, 0);
-    game.testMove(std::make_shared< SNode >(finish));
-    std::cout << finish.parent->position.first << " " << finish.parent->position.second << std::endl;
-     */
-    SNode finish1(23,25,0,0);
-    game.testMove(std::make_shared< SNode >(finish1));
+    bool isFinish = false;
+    while (!isFinish) {
+        EMovementDirection result = game.nextMoveForPlayer(0);
+        if (result == EMovementDirection::FINISH_POSITION) {
+            isFinish = true;
+        }
+        printMovementDiection(result);
+    }
+    
+    //game.testMove(std::make_shared< SNode >(finish1));
     //SNode finish2(21,14,0,0);
     //game.testMove(std::make_shared< SNode >(finish2));
 }

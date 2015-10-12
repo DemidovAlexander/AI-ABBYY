@@ -17,7 +17,7 @@
 
 class AStarStrategyOnYAGSBPL {   
 public:
-    void searchPath(SNode& start, SNode& finish);
+    SNode searchPath(SNode& start, SNode& finish);
 };
 
 #endif /* CAStarStrategyOnYAGSBPL_hpp */

@@ -139,8 +139,8 @@ void A_star_planner<NodeType,CostType>::plan(void)
 			    {
 				    if (timediff>=0.0)
 					    timediff = ((float)(clock()-startclock)) / ((float)CLOCKS_PER_SEC);
-				    printf("Number of states expanded: %d. Heap size: %d. Time elapsed: %f s.\n", 
-						    expandcount, heap->size(), ((timediff>=0.0) ? timediff : difftime(time(NULL),startsecond)) );
+				    //printf("Number of states expanded: %d. Heap size: %d. Time elapsed: %f s.\n",
+					//	    expandcount, heap->size(), ((timediff>=0.0) ? timediff : difftime(time(NULL),startsecond)) );
 			    }
 			    expandcount++;
 			}
@@ -170,8 +170,8 @@ void A_star_planner<NodeType,CostType>::plan(void)
 			    if (ProgressShowInterval>0) {
 				    if (timediff>=0.0)
 					    timediff = ((float)(clock()-startclock)) / ((float)CLOCKS_PER_SEC);
-				    printf("Stopping search!! Number of states expanded: %d. Heap size: %d. Time elapsed: %f s.\n", 
-						    expandcount, heap->size(), ((timediff>=0.0) ? timediff : difftime(time(NULL),startsecond)) );
+				    //printf("Stopping search!! Number of states expanded: %d. Heap size: %d. Time elapsed: %f s.\n",
+					//	    expandcount, heap->size(), ((timediff>=0.0) ? timediff : difftime(time(NULL),startsecond)) );
 			    }
 			#endif
 			return;
