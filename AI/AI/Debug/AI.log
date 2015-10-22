@@ -1,0 +1,188 @@
+﻿Build started 22.10.2015 20:24:42.
+     1>Project "C:\7semester\IndustrialProg\Race-AI\AI\AI\AI.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt CAStarStrategyOnYAGSBPL.cpp planners\A_star.cpp yagsbpl_base.cpp
+         yagsbpl_base.cpp
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(31): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(31): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(31): error C2182: 'HeapContainer': illegal use of type 'void'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(31): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(80): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(80): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(93): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(93): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(93): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(112): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(112): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(124): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(124): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(124): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(140): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(140): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(168): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(168): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(184): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(184): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(184): error C2182: 'GenericSearchGraphDescriptor': illegal use of type 'void'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(184): error C2374: 'GenericSearchGraphDescriptor': redefinition; multiple initialization
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): note: see declaration of 'GenericSearchGraphDescriptor'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(184): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(194): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(194): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(202): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(202): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(202): error C2371: 'GenericSearchGraphDescriptor': redefinition; different basic types
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): note: see declaration of 'GenericSearchGraphDescriptor'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(202): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(220): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(220): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(225): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(225): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(225): error C2371: 'GenericSearchGraphDescriptor': redefinition; different basic types
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(150): note: see declaration of 'GenericSearchGraphDescriptor'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(225): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(243): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(243): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(265): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(265): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(265): error C2182: 'HashTableContainer': illegal use of type 'void'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(265): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(277): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(277): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(299): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(299): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(299): error C2182: 'GenericPlanner': illegal use of type 'void'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(299): error C2059: syntax error: '<'
+         A_star.cpp
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(29): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(29): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(29): error C2182: 'A_star_planner': illegal use of type 'void'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(29): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(82): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(82): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(109): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(109): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(109): error C2371: 'A_star_planner': redefinition; different basic types
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(29): note: see declaration of 'A_star_planner'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(109): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(121): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(121): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(290): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(290): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(290): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(298): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(298): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(306): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(306): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(306): error C2059: syntax error: '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(316): error C2143: syntax error: missing ';' before '{'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(316): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(336): error C2988: unrecognizable template declaration/definition
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(336): error C2143: syntax error: missing ';' before '<'
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(336): error C2059: syntax error: '<'
+         CAStarStrategyOnYAGSBPL.cpp
+     1>c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(16): warning C4068: unknown pragma
+     1>c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(60): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(65): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(79): warning C4068: unknown pragma
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.h(235): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.h(231): note: while compiling class template member function 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::~HashTableContainer(void)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(116): note: see reference to function template instantiation 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::~HashTableContainer(void)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.h(255): note: see reference to class template instantiation 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.h(255): note: while compiling class template member function 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>::~GenericPlanner(void)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(115): note: see reference to function template instantiation 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>::~GenericPlanner(void)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.h(67): note: see reference to class template instantiation 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(94): note: see reference to class template instantiation 'A_star_planner<SNode,double>' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(48): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(30): note: while compiling class template member function 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)'
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.h(103): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(198): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(121): note: while compiling class template member function 'void A_star_planner<SNode,double>::plan(void)'
+         c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(96): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::plan(void)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(319): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(316): note: while compiling class template member function 'std::vector<std::vector<SNode,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> A_star_planner<SNode,double>::getPlannedPaths(void)'
+                 with
+                 [
+                     _Ty=SNode
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\castarstrategyonyagsbpl.cpp(98): note: see reference to function template instantiation 'std::vector<std::vector<SNode,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> A_star_planner<SNode,double>::getPlannedPaths(void)' being compiled
+                 with
+                 [
+                     _Ty=SNode
+                 ]
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(281): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(277): note: while compiling class template member function 'SearchGraphNode<NodeType,CostType,A_star_variables<CostType>> *HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::getNodeInHash(NodeType)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(51): note: see reference to function template instantiation 'SearchGraphNode<NodeType,CostType,A_star_variables<CostType>> *HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::getNodeInHash(NodeType)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(30): note: while compiling class template member function 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)'
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.h(103): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(55): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(32): note: while compiling class template member function 'void HeapContainer<NodeType,CostType,PlannerSpecificVariables>::update(SearchGraphNode<NodeType,CostType,PlannerSpecificVariables> *,HeapContainer<NodeType,CostType,PlannerSpecificVariables>::BubbleDirection)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai\ai\planners\a_star.cpp(266): note: see reference to function template instantiation 'void HeapContainer<NodeType,CostType,PlannerSpecificVariables>::update(SearchGraphNode<NodeType,CostType,PlannerSpecificVariables> *,HeapContainer<NodeType,CostType,PlannerSpecificVariables>::BubbleDirection)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(57): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai\ai\yagsbpl_base.cpp(59): warning C4018: '<': signed/unsigned mismatch
+         Generating Code...
+     1>Done Building Project "C:\7semester\IndustrialProg\Race-AI\AI\AI\AI.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.05
