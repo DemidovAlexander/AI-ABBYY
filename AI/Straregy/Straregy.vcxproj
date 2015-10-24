@@ -19,32 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5759EC9-6A6C-4BB4-96B8-6E1412F57C4F}</ProjectGuid>
-    <RootNamespace>AI</RootNamespace>
+    <ProjectGuid>{1F53EF68-FDA1-44C9-ABFE-130CA90B22B6}</ProjectGuid>
+    <RootNamespace>Straregy</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>StrategyDll</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -118,32 +119,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CAStarStrategyOnYAGSBPL.hpp" />
-    <ClInclude Include="CDynamicProgrammingStrategy.h" />
-    <ClInclude Include="CGame.hpp" />
-    <ClInclude Include="CMap.hpp" />
-    <ClInclude Include="CPlayerState.hpp" />
-    <ClInclude Include="CStateArray.h" />
-    <ClInclude Include="CStrategy.h" />
-    <ClInclude Include="CVector.h" />
-    <ClInclude Include="EMoveDirection.h" />
-    <ClInclude Include="planners\A_star.h" />
-    <ClInclude Include="SNode.hpp" />
+    <ClInclude Include="..\AI\CDynamicProgrammingStrategy.h" />
+    <ClInclude Include="..\AI\CMap.hpp" />
+    <ClInclude Include="..\AI\CPlayerState.hpp" />
+    <ClInclude Include="..\AI\CStateArray.h" />
+    <ClInclude Include="..\AI\CStrategy.h" />
+    <ClInclude Include="..\AI\CVector.h" />
+    <ClInclude Include="..\AI\EMoveDirection.h" />
+    <ClInclude Include="..\AI\SNode.hpp" />
     <ClInclude Include="StrategyDll.h" />
-    <ClInclude Include="yagsbpl_base.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CAStarStrategyOnYAGSBPL.cpp" />
-    <ClCompile Include="CDynamicProgrammingStrategy.cpp" />
-    <ClCompile Include="CGame.cpp" />
-    <ClCompile Include="CMap.cpp" />
-    <ClCompile Include="CPlayerState.cpp" />
-    <ClCompile Include="CStateArray.cpp" />
-    <ClCompile Include="CStrategy.cpp" />
-    <ClCompile Include="CVector.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="planners\A_star.cpp" />
-    <ClCompile Include="yagsbpl_base.cpp" />
+    <ClCompile Include="..\AI\CDynamicProgrammingStrategy.cpp" />
+    <ClCompile Include="..\AI\CMap.cpp" />
+    <ClCompile Include="..\AI\CPlayerState.cpp" />
+    <ClCompile Include="..\AI\CStateArray.cpp" />
+    <ClCompile Include="..\AI\CStrategy.cpp" />
+    <ClCompile Include="..\AI\CVector.cpp" />
+    <ClCompile Include="StrategyDll.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
