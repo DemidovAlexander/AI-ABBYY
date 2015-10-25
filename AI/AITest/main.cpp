@@ -3,7 +3,7 @@
 #include "CMap.hpp"
 #include "EMoveDirection.h"
 
-typedef int(__cdecl *MYPROC)(LPWSTR);
+typedef int(__cdecl *MYPROC)(const Map &map, const PlayerState &player);
 
 int main() {
 	HINSTANCE hinstLib = LoadLibrary(TEXT("StrategyDLL.dll"));

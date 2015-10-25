@@ -9,8 +9,6 @@
 #include "CPlayerState.hpp"
 #include <stdexcept>
 
-#pragma mark - Constructors
-
 PlayerState::PlayerState() {
     position = std::make_pair(0, 0);
     velocityVector = std::make_pair(0, 0);
@@ -29,13 +27,9 @@ PlayerState::PlayerState(int x, int y, int xVelocity, int yVelocity) {
     velocityVector = std::make_pair(xVelocity, yVelocity);
 }
 
-#pragma mark - Destructor
-
 PlayerState::~PlayerState() {
     
 }
-
-#pragma mark - Compare operators
 
 bool PlayerState::operator==(const PlayerState &other) const {
     return position == other.position && velocityVector == other.velocityVector;
@@ -44,8 +38,6 @@ bool PlayerState::operator==(const PlayerState &other) const {
 bool PlayerState::operator!=(const PlayerState &other) const {
     return !(*this == other);
 }
-
-#pragma mark - Methods
 
 void PlayerState::changePosition(std::pair< int, int > inputPosition) {
     if (inputPosition.first < 0 || inputPosition.second < 0) {

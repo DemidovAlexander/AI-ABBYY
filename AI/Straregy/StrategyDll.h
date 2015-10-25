@@ -1,7 +1,7 @@
-#ifdef WORDSCOUNT_EXPORTS
-#define WORDSCOUNT_API __declspec(dllexport) 
+#ifdef RACE_AI_EXPORTS
+#define RACE_AI_API __declspec(dllexport) 
 #else
-#define WORDSCOUNT_API __declspec(dllimport) 
+#define RACE_AI_API __declspec(dllimport) 
 #endif
 
 #include "CStrategy.h"
