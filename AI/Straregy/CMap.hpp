@@ -12,9 +12,10 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "CPlayerState.hpp"
+#include "IPlayerState.h"
+#include "IMap.h"
 
-class Map {
+class Map : public IMap {
 private:
     std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > cells;
     size_t xSize;
@@ -42,17 +43,16 @@ public:
     
     bool canPlayerStayOnCell(int x, int y) const;
     bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const;
-    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< PlayerState > > players) const;
+    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< IPlayerState > > players) const;
 
     const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;
     
-    // methods for testing
-    
+    // methods for testing    
     // only for default size map!
     void fillMapWithTestData();
     void fillMapWithTestData2();
     
-    void print(std::shared_ptr< std::vector< PlayerState > > players);
+    void print(std::shared_ptr< std::vector< IPlayerState > > players);
 };
 
 #endif /* CMap_hpp */

@@ -19,28 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CAStarStrategyOnYAGSBPL.cpp" />
     <ClCompile Include="CDynamicProgrammingStrategy.cpp" />
     <ClCompile Include="CMap.cpp" />
     <ClCompile Include="CPlayerState.cpp" />
     <ClCompile Include="CStateArray.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="planners\A_star.cpp" />
     <ClCompile Include="StrategyDll.cpp" />
-    <ClCompile Include="yagsbpl_base.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CAStarStrategyOnYAGSBPL.hpp" />
+    <ClInclude Include="IMap.h" />
+    <ClInclude Include="IPlayerState.h" />
     <ClInclude Include="CDynamicProgrammingStrategy.h" />
     <ClInclude Include="CMap.hpp" />
     <ClInclude Include="CPlayerState.hpp" />
     <ClInclude Include="CStateArray.h" />
     <ClInclude Include="CStrategy.h" />
     <ClInclude Include="EMoveDirection.h" />
-    <ClInclude Include="planners\A_star.h" />
-    <ClInclude Include="SNode.hpp" />
     <ClInclude Include="StrategyDll.h" />
-    <ClInclude Include="yagsbpl_base.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1F53EF68-FDA1-44C9-ABFE-130CA90B22B6}</ProjectGuid>

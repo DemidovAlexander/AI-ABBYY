@@ -33,20 +33,8 @@
     <ClCompile Include="StrategyDll.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="CAStarStrategyOnYAGSBPL.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="yagsbpl_base.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="planners\A_star.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CAStarStrategyOnYAGSBPL.hpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="CDynamicProgrammingStrategy.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
@@ -65,16 +53,13 @@
     <ClInclude Include="EMoveDirection.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="SNode.hpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="StrategyDll.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="yagsbpl_base.h">
+    <ClInclude Include="IPlayerState.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="planners\A_star.h">
+    <ClInclude Include="IMap.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

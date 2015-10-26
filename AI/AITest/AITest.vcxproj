@@ -118,8 +118,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CMap.cpp" />
-    <ClCompile Include="CPlayerState.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +126,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CMap.hpp" />
-    <ClInclude Include="CPlayerState.hpp" />
-    <ClInclude Include="EMoveDirection.h" />
+    <ClInclude Include="IMap.h" />
+    <ClInclude Include="IPlayerState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

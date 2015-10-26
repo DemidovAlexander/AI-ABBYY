@@ -71,7 +71,7 @@ bool Map::canPlayerStayOnCell(int x, int y) const {
     }
 }
 
-bool Map::canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< PlayerState > > players) const {
+bool Map::canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< IPlayerState > > players) const {
     if (x < 0 || y < 0 || x >= xSize || y >= ySize) {
         return false;
     }
@@ -182,7 +182,7 @@ void Map::fillMapWithTestData2() {
     finishPoints->push_back(std::make_pair(DEFAULT_X_SIZE - 1, DEFAULT_Y_SIZE -1));
 }
 
-void Map::print(std::shared_ptr< std::vector< PlayerState > > players) {
+void Map::print(std::shared_ptr< std::vector< IPlayerState > > players) {
     for (int i = 0; i < xSize; ++i) {
         for (int j = 0; j < ySize; ++j) {
             for (int p = 0; p < players->size(); ++p) {

@@ -28,14 +28,13 @@ PlayerState::PlayerState(int x, int y, int xVelocity, int yVelocity) {
 }
 
 PlayerState::~PlayerState() {
-    
 }
 
-bool PlayerState::operator==(const PlayerState &other) const {
-    return position == other.position && velocityVector == other.velocityVector;
+bool PlayerState::operator==(const IPlayerState &other) const {
+    return position == other.getPosition() && velocityVector == other.getVelocityVector();
 }
 
-bool PlayerState::operator!=(const PlayerState &other) const {
+bool PlayerState::operator!=(const IPlayerState &other) const {
     return !(*this == other);
 }
 

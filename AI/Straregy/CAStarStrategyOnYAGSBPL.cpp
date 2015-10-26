@@ -11,9 +11,8 @@
 #include "yagsbpl_base.h"
 #include "planners/A_star.h"
 
-extern std::shared_ptr< Map > aStarStaticMap;
-
-#pragma mark - Methods Needed For YAGSBPL
+// ЭТА ШТУКА ДОЛЖНА ГДЕ-ТО ЗАПОЛНЯТЬСЯ!!!!
+std::shared_ptr< Map > aStarStaticMap;
 
 int getHashBin(SNode& node) {
     int nodeSum = node.position.first;
@@ -75,8 +74,6 @@ void getSuccessors(SNode& node, std::vector<SNode>* s, std::vector<double>* c) {
 double getHeuristics(SNode& node1, SNode& node2) {
     return std::max(abs(node1.position.first - node2.position.first),abs(node1.position.second - node2.position.second));
 }
-
-#pragma mark - Main
 
 SNode AStarStrategyOnYAGSBPL::searchPath(SNode& start, SNode& finish) {
     GenericSearchGraphDescriptor<SNode, double> graph;
