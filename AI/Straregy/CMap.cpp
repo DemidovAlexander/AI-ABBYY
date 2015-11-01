@@ -204,6 +204,13 @@ std::vector< int > &Map::operator[](int i) {
     return (*(*cells)[i]);
 }
 
+const std::vector< int > &Map::operator[](int i)const {
+	if (i >= xSize) {
+		throw std::out_of_range("index is out of range");
+	}
+	return (*(*cells)[i]);
+}
+
 const std::shared_ptr<std::vector<std::pair<int, int> > > Map::GetFinishPoints() const {
     return finishPoints;
 }
