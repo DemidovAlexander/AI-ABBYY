@@ -26,5 +26,8 @@
     <ClInclude Include="IPlayerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IPlayerStateList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
