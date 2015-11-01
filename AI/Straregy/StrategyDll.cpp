@@ -1,12 +1,22 @@
 #include "StrategyDll.h"
+#include "IPlayerState.h"
+#include "IPlayerStateList.h"
+#include "IMap.h"
+#include "CPlayerState.hpp"
+#include "CPlayerStateList.h"
+#include "CMap.hpp"
+#include "EMoveDirection.h"
 
-extern "C" __declspec(dllexport) EMovementDirection DynamicProgrammingStrategyFunc(const Map &map, const PlayerState &player)
-{
-	static CDynamicProgrammingStrategy strategy(map, player);
+int DynamicProgrammingStrategyFunc(const IMap &_map, const IPlayerStateList &_playerStateList, const IPlayerState &_currentPlayer) {
+	const Map map = *(dynamic_cast<const Map*>(&_map));
+	const PlayerStateList playerStateList = *(dynamic_cast<const PlayerStateList*>(&_playerStateList));
+	const PlayerState currentPlayer = *(dynamic_cast<const PlayerState*>(&_currentPlayer));
+
+	static CDynamicProgrammingStrategy strategy(map, currentPlayer);
 	auto step = strategy.GetNextPosition();
 	EMovementDirection direction;
-	int x = player.GetX() - step.first;
-	int y = player.GetY() - step.second;
+	int x = currentPlayer.GetX() - step.first;
+	int y = currentPlayer.GetY() - step.second;
 	if (x == 0 && y == 0) {
 		direction = EMovementDirection::NONE;
 	}
@@ -34,5 +44,18 @@ extern "C" __declspec(dllexport) EMovementDirection DynamicProgrammingStrategyFu
 	else if (x == -1 && y == -1) {
 		direction = EMovementDirection::UP_LEFT;
 	}
-	return direction;
+
+	return (int)direction;
+}
+
+IPlayerState* GetPlayerState(int x, int y, int xVelocity, int yVelocity) {
+	return new PlayerState(x, y, xVelocity, yVelocity);
+}
+
+IPlayerStateList* GetPlayerStateList() {
+	return new PlayerStateList();
+}
+
+IMap* GetMap() {
+	return new Map();
 }

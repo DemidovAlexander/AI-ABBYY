@@ -23,18 +23,23 @@
     <ClCompile Include="CDynamicProgrammingStrategy.cpp" />
     <ClCompile Include="CMap.cpp" />
     <ClCompile Include="CPlayerState.cpp" />
+    <ClCompile Include="CPlayerStateList.cpp" />
     <ClCompile Include="CStateArray.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StrategyDll.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CAStarStrategyOnYAGSBPL.hpp" />
+    <ClInclude Include="CPlayerStateList.h" />
+    <ClInclude Include="IMap.h" />
+    <ClInclude Include="IPlayerState.h" />
     <ClInclude Include="CDynamicProgrammingStrategy.h" />
     <ClInclude Include="CMap.hpp" />
     <ClInclude Include="CPlayerState.hpp" />
     <ClInclude Include="CStateArray.h" />
     <ClInclude Include="CStrategy.h" />
     <ClInclude Include="EMoveDirection.h" />
+    <ClInclude Include="IPlayerStateList.h" />
     <ClInclude Include="planners\A_star.h" />
     <ClInclude Include="SNode.hpp" />
     <ClInclude Include="StrategyDll.h" />

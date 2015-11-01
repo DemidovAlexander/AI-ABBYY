@@ -49,27 +49,37 @@ template <class NodeType, class CostType, class PlannerSpecificVariables>
 class NodeLinks
 {
 public:
-	std::vector< SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* >* targets;
+	std::vector< SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* >* targets;
 	std::vector<CostType>* costs;
-	
+
 	// -------------------
 	NodeLinks() { targets = NULL; costs = NULL; }
 	bool empty(void) { return (!targets); }
 	int size(void) { if (targets) return targets->size(); else return -1; }
-	void init(int count=0) { targets = new std::vector< SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* >(count); 
-						costs = new std::vector<CostType>(count); }
-	
-	void push_back( SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* node_p , CostType cost )
-		{ targets->push_back(node_p) ; costs->push_back(cost); }
-	void set(int a, SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* node_p , CostType cost )
-		{ targets->operator[](a) = node_p ; costs->operator[](a) = cost; }
-	
-	SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* getLinkSearchGraphNode (int a) 
-		{ return (targets->operator[](a)); }
-	CostType getLinkCost (int a) 
-		{ return (costs->operator[](a)); }
-	
-	~NodeLinks() {  if(targets) delete targets;  if(costs) delete costs;  }
+	void init(int count = 0) {
+		targets = new std::vector< SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* >(count);
+		costs = new std::vector<CostType>(count);
+	}
+
+	void push_back(SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* node_p, CostType cost)
+	{
+		targets->push_back(node_p); costs->push_back(cost);
+	}
+	void set(int a, SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* node_p, CostType cost)
+	{
+		targets->operator[](a) = node_p; costs->operator[](a) = cost;
+	}
+
+	SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* getLinkSearchGraphNode(int a)
+	{
+		return (targets->operator[](a));
+	}
+	CostType getLinkCost(int a)
+	{
+		return (costs->operator[](a));
+	}
+
+	~NodeLinks() { if (targets) delete targets;  if (costs) delete costs; }
 };
 
 // Extension of NodeType for search problem
@@ -78,22 +88,22 @@ class SearchGraphNode
 {
 public:
 	NodeType n;
-	
+
 	// ---------------------------------------------------------------
 	// TODO for planner: Planner must set each of the following every time a "non-initiated" node is encountered.
 	bool initiated; // Used for tracking newly-create nodes by hash table. To be set to "true" by planner.
-	NodeLinks<NodeType,CostType,PlannerSpecificVariables> successors;
-	NodeLinks<NodeType,CostType,PlannerSpecificVariables> predecessors; // Planner may or may not use this
-	SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* came_from;
+	NodeLinks<NodeType, CostType, PlannerSpecificVariables> successors;
+	NodeLinks<NodeType, CostType, PlannerSpecificVariables> predecessors; // Planner may or may not use this
+	SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* came_from;
 	PlannerSpecificVariables plannerVars; // Other variables, if required by planner
 	CostType f; // f-value: Used for maintaining the heap
-	
-	// ---------------------------------------------------------------
-	// These variables are used by heap container
+
+				// ---------------------------------------------------------------
+				// These variables are used by heap container
 	bool inHeap;
 	int heapArrayPos;
-	
-	SearchGraphNode() { initiated=false; came_from=NULL; inHeap=false; }
+
+	SearchGraphNode() { initiated = false; came_from = NULL; inHeap = false; }
 };
 
 // ---------------------------------------------------------------------
@@ -103,21 +113,21 @@ template <class NodeType, class CostType, class PlannerSpecificVariables>
 class HeapContainer
 {
 public:
-	typedef  SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>*  heapItem_p;
-	
+	typedef  SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>*  heapItem_p;
+
 	int heap_size;
 	std::vector <heapItem_p> heapArray;
-	
-	HeapContainer(int kc=20) { heap_size=0; }
-	
-	typedef enum {UNKNOWN_BUBDIR, UPONLY_BUBDIR, DOWNONLY_BUBDIR} BubbleDirection;
-	
+
+	HeapContainer(int kc = 20) { heap_size = 0; }
+
+	typedef enum { UNKNOWN_BUBDIR, UPONLY_BUBDIR, DOWNONLY_BUBDIR } BubbleDirection;
+
 	void push(heapItem_p np);
 	heapItem_p pop(void);
-	void update (heapItem_p np, BubbleDirection bubdir=UNKNOWN_BUBDIR);
+	void update(heapItem_p np, BubbleDirection bubdir = UNKNOWN_BUBDIR);
 	void remove(heapItem_p np);
 	void clear(void) { while (heap_size>0) pop(); };
-	bool empty(void) { return (heap_size==0); };
+	bool empty(void) { return (heap_size == 0); };
 	int size(void) { return (heap_size); };
 };
 
@@ -129,15 +139,15 @@ class SearchGraphDescriptorFunctionContainer
 {
 public:
 	bool func_redefined;
-    virtual int getHashBin(NodeType& n) { func_redefined = false; return 0;};
-	virtual bool isAccessible(NodeType& n) { func_redefined = false; return 0;};
+	virtual int getHashBin(NodeType& n) { func_redefined = false; return 0; };
+	virtual bool isAccessible(NodeType& n) { func_redefined = false; return 0; };
 	virtual void getSuccessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c) { func_redefined = false; };
 	virtual void getPredecessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c) { func_redefined = false; };
-	virtual bool storePath(NodeType& n) { func_redefined = false; return 0;};
-	virtual bool stopSearch(NodeType& n) { func_redefined = false; return 0;};
-	
+	virtual bool storePath(NodeType& n) { func_redefined = false; return 0; };
+	virtual bool stopSearch(NodeType& n) { func_redefined = false; return 0; };
+
 	// 
-	virtual CostType getHeuristics(NodeType& n1, NodeType& n2) { func_redefined = false; return 0;};
+	virtual CostType getHeuristics(NodeType& n1, NodeType& n2) { func_redefined = false; return 0; };
 };
 
 template <class NodeType, class CostType, class ContainerClass>
@@ -149,24 +159,38 @@ public:
 	bool (ContainerClass::*isAccessible_fp)(NodeType& n);
 	void (ContainerClass::*getSuccessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c);
 	void (ContainerClass::*getPredecessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c);
-	CostType (ContainerClass::*getHeuristics_fp)(NodeType& n1, NodeType& n2);
+	CostType(ContainerClass::*getHeuristics_fp)(NodeType& n1, NodeType& n2);
 	bool (ContainerClass::*storePath_fp)(NodeType& n);
 	bool (ContainerClass::*stopSearch_fp)(NodeType& n);
 	// ----
-	int getHashBin(NodeType& n) 
-		{ if(p && getHashBin_fp) return ( (p->*getHashBin_fp)(n) ); else this->func_redefined = false; }
-	bool isAccessible(NodeType& n) 
-		{ if(p && isAccessible_fp) return ( (p->*isAccessible_fp)(n) ); else this->func_redefined = false; }
-	void getSuccessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c) 
-		{ if(p && getSuccessors_fp) return ( (p->*getSuccessors_fp)(n, s, c) ); else this->func_redefined = false; }
-	void getPredecessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c) 
-		{ if(p && getPredecessors_fp) return ( (p->*getPredecessors_fp)(n, s, c) ); else this->func_redefined = false; }
-	CostType getHeuristics(NodeType& n1, NodeType& n2) 
-		{ if(p && getHeuristics_fp) return ( (p->*getHeuristics_fp)(n1, n2) ); else this->func_redefined = false; }
-	bool storePath(NodeType& n) 
-		{ if(p && storePath_fp) return ( (p->*storePath_fp)(n) ); else this->func_redefined = false; }
-	bool stopSearch(NodeType& n) 
-	    { if(p && stopSearch_fp) return ( (p->*stopSearch_fp)(n) ); else this->func_redefined = false; }
+	int getHashBin(NodeType& n)
+	{
+		if (p && getHashBin_fp) return ((p->*getHashBin_fp)(n)); else this->func_redefined = false;
+	}
+	bool isAccessible(NodeType& n)
+	{
+		if (p && isAccessible_fp) return ((p->*isAccessible_fp)(n)); else this->func_redefined = false;
+	}
+	void getSuccessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c)
+	{
+		if (p && getSuccessors_fp) return ((p->*getSuccessors_fp)(n, s, c)); else this->func_redefined = false;
+	}
+	void getPredecessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c)
+	{
+		if (p && getPredecessors_fp) return ((p->*getPredecessors_fp)(n, s, c)); else this->func_redefined = false;
+	}
+	CostType getHeuristics(NodeType& n1, NodeType& n2)
+	{
+		if (p && getHeuristics_fp) return ((p->*getHeuristics_fp)(n1, n2)); else this->func_redefined = false;
+	}
+	bool storePath(NodeType& n)
+	{
+		if (p && storePath_fp) return ((p->*storePath_fp)(n)); else this->func_redefined = false;
+	}
+	bool stopSearch(NodeType& n)
+	{
+		if (p && stopSearch_fp) return ((p->*stopSearch_fp)(n)); else this->func_redefined = false;
+	}
 };
 
 // ----
@@ -178,33 +202,33 @@ class GenericSearchGraphDescriptor
 {
 public:
 	// Primary functions
-	int (*getHashBin_fp)(NodeType& n);
-	bool (*isAccessible_fp)(NodeType& n); // optional
-	void (*getSuccessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c); // s: successors, c: tranition costs
-	void (*getPredecessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c); // May not be used by all planners
-	CostType (*getHeuristics_fp)(NodeType& n1, NodeType& n2); // optional
-	bool (*storePath_fp)(NodeType& n); // optional
-	bool (*stopSearch_fp)(NodeType& n); // optional if "HeuristicsTargetNode" is given.
-	
-	// If pointers to primary functions cannot be provided, we can alternatively use the virtual functions in the FunctionContainer
-	SearchGraphDescriptorFunctionContainer<NodeType,CostType>* func_container;
-	
+	int(*getHashBin_fp)(NodeType& n);
+	bool(*isAccessible_fp)(NodeType& n); // optional
+	void(*getSuccessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c); // s: successors, c: tranition costs
+	void(*getPredecessors_fp)(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c); // May not be used by all planners
+	CostType(*getHeuristics_fp)(NodeType& n1, NodeType& n2); // optional
+	bool(*storePath_fp)(NodeType& n); // optional
+	bool(*stopSearch_fp)(NodeType& n); // optional if "HeuristicsTargetNode" is given.
+
+									   // If pointers to primary functions cannot be provided, we can alternatively use the virtual functions in the FunctionContainer
+	SearchGraphDescriptorFunctionContainer<NodeType, CostType>* func_container;
+
 	// Primary variables
 	int hashTableSize; // Number of hash bins. "getHashBin" must return a value between 0 and hashTableSize
-	// An initial set of "start" nodes to be put in heap. At least one of the following two need to be set.
+					   // An initial set of "start" nodes to be put in heap. At least one of the following two need to be set.
 	std::vector<NodeType> SeedNodes;
 	NodeType SeedNode;
 	// "Goal" used for computing Heuristics. Not required if "getHeuristics" is not provided.
 	NodeType TargetNode; // If "stopSearch" is not provided, this is used to determine when to stop.
-	
-	// Other variables and functions - constructor chooses a default
+
+						 // Other variables and functions - constructor chooses a default
 	int hashBinSizeIncreaseStep; // optional
-	
-	// ---------------------------------------------------------------
-	// Constructor and other functions
+
+								 // ---------------------------------------------------------------
+								 // Constructor and other functions
 	GenericSearchGraphDescriptor();
 	void init(void); // TODO: Planner is supposed to call this at initialization.
-	// Derived functions - planner should use these, and NOT the former functions
+					 // Derived functions - planner should use these, and NOT the former functions
 	int _getHashBin(NodeType& n);
 	bool _isAccessible(NodeType& n);
 	void _getSuccessors(NodeType& n, std::vector<NodeType>* s, std::vector<CostType>* c);
@@ -222,17 +246,17 @@ template <class NodeType, class CostType, class PlannerSpecificVariables>
 class HashTableContainer
 {
 public:
-	GenericSearchGraphDescriptor<NodeType,CostType>* friendGraphDescriptor_p;
+	GenericSearchGraphDescriptor<NodeType, CostType>* friendGraphDescriptor_p;
 	int hashTableSize;
-	std::vector< SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* >* HashTable;
+	std::vector< SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* >* HashTable;
 	void init_HastTable(int hash_table_size);
-	SearchGraphNode<NodeType,CostType,PlannerSpecificVariables>* getNodeInHash(NodeType n); // Returns pointer to already-existing
+	SearchGraphNode<NodeType, CostType, PlannerSpecificVariables>* getNodeInHash(NodeType n); // Returns pointer to already-existing
 	~HashTableContainer()
 	{
 		if (HashTable)
 		{
-			for (int a=0; a<hashTableSize; a++)
-				for (int b=0; b<HashTable[a].size(); b++)
+			for (int a = 0; a<hashTableSize; a++)
+				for (int b = 0; b<HashTable[a].size(); b++)
 					delete HashTable[a][b];
 			delete[] HashTable;
 		}
@@ -247,11 +271,11 @@ template <class NodeType, class CostType, class PlannerSpecificVariables>
 class GenericPlanner
 {
 public:
-	GenericSearchGraphDescriptor<NodeType,CostType>* GraphDescriptor;
-	HashTableContainer<NodeType,CostType,PlannerSpecificVariables>* hash;
-	HeapContainer<NodeType,CostType,PlannerSpecificVariables>* heap;
-	
-	void init( GenericSearchGraphDescriptor<NodeType,CostType> theEnv , int heapKeyNum=20 ); // A planner must call this explicitly.
+	GenericSearchGraphDescriptor<NodeType, CostType>* GraphDescriptor;
+	HashTableContainer<NodeType, CostType, PlannerSpecificVariables>* hash;
+	HeapContainer<NodeType, CostType, PlannerSpecificVariables>* heap;
+
+	void init(GenericSearchGraphDescriptor<NodeType, CostType> theEnv, int heapKeyNum = 20); // A planner must call this explicitly.
 	~GenericPlanner() { delete GraphDescriptor; delete hash; delete heap; }
 };
 
@@ -263,4 +287,3 @@ public:
 #include "yagsbpl_base.cpp"
 
 #endif
-

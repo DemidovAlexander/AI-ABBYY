@@ -4,8 +4,14 @@
 #define RACE_AI_API __declspec(dllimport) 
 #endif
 
-#include "CStrategy.h"
 #include "CDynamicProgrammingStrategy.h"
-#include "EMoveDirection.h"
+#include "IPlayerState.h"
+#include "IPlayerStateList.h"
+#include "IMap.h"
 
-extern "C" __declspec(dllexport) EMovementDirection DynamicProgrammingStrategyFunc(const Map &map, const PlayerState &player);
+extern "C" RACE_AI_API int DynamicProgrammingStrategyFunc(const IMap &map, const IPlayerStateList &playerStateList, const IPlayerState &player);
+
+// Factories to export PlayerState and Map classes
+extern "C" RACE_AI_API IPlayerState* GetPlayerState(int x, int y, int xVelocity, int yVelocity);
+extern "C" RACE_AI_API IPlayerStateList* GetPlayerStateList();
+extern "C" RACE_AI_API IMap* GetMap();

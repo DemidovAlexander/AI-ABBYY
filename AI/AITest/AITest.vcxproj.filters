@@ -18,21 +18,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CPlayerState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CMap.hpp">
+    <ClInclude Include="IMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CPlayerState.hpp">
+    <ClInclude Include="IPlayerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EMoveDirection.h">
+    <ClInclude Include="IPlayerStateList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

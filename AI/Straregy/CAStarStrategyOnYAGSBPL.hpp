@@ -15,9 +15,9 @@
 #include "CMap.hpp"
 #include <functional>
 
-class AStarStrategyOnYAGSBPL {   
+class AStarStrategyOnYAGSBPL {
 public:
-    SNode searchPath(SNode& start, SNode& finish);
+	SNode searchPath(SNode& start, SNode& finish);
 };
 
 #endif /* CAStarStrategyOnYAGSBPL_hpp */
