@@ -12,7 +12,7 @@ public:
 	virtual const size_t sizeOnYaxis() const = 0;             // returs ySize
 
 	virtual std::vector< int > &operator[](int i) = 0;
-
+	//virtual const std::vector< int > &operator[](int i)const  = 0;
 	virtual bool canPlayerStayOnCell(int x, int y) const = 0;
 	virtual bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const = 0;
 	virtual bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID,

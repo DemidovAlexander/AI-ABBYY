@@ -40,6 +40,7 @@ public:
     const size_t sizeOnYaxis() const;             // returs ySize
     
     std::vector< int > &operator[](int i);
+	const std::vector< int > &operator[](int i)const;
     
     bool canPlayerStayOnCell(int x, int y) const;
     bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const;
