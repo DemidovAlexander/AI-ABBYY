@@ -39,5 +39,4 @@ public:
     bool HasNextState();
 };
 
-
 #endif //AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H

@@ -128,7 +128,6 @@
   <ItemGroup>
     <ClInclude Include="IMap.h" />
     <ClInclude Include="IPlayerState.h" />
-    <ClInclude Include="IPlayerStateList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

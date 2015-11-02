@@ -54,9 +54,6 @@
     <ClCompile Include="CMap.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayerStateList.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StrategyDll.h">
@@ -92,16 +89,10 @@
     <ClInclude Include="SNode.hpp">
       <Filter>AStar\Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="IPlayerStateList.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="CMap.hpp">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="CPlayerState.hpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="CPlayerStateList.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

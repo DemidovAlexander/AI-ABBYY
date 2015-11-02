@@ -6,12 +6,10 @@
 
 #include "CDynamicProgrammingStrategy.h"
 #include "IPlayerState.h"
-#include "IPlayerStateList.h"
 #include "IMap.h"
 
-extern "C" RACE_AI_API int DynamicProgrammingStrategyFunc(const IMap &map, const IPlayerStateList &playerStateList, const IPlayerState &player);
+extern "C" RACE_AI_API int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
 
 // Factories to export PlayerState and Map classes
 extern "C" RACE_AI_API IPlayerState* GetPlayerState(int x, int y, int xVelocity, int yVelocity);
-extern "C" RACE_AI_API IPlayerStateList* GetPlayerStateList();
 extern "C" RACE_AI_API IMap* GetMap();

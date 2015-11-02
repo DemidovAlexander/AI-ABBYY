@@ -1,16 +1,13 @@
 #include "StrategyDll.h"
 #include "IPlayerState.h"
-#include "IPlayerStateList.h"
 #include "IMap.h"
 #include "CPlayerState.hpp"
-#include "CPlayerStateList.h"
 #include "CMap.hpp"
 #include "EMoveDirection.h"
 
-int DynamicProgrammingStrategyFunc(const IMap &_map, const IPlayerStateList &_playerStateList, const IPlayerState &_currentPlayer) {
+int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition) {
 	const Map map = *(dynamic_cast<const Map*>(&_map));
-	const PlayerStateList playerStateList = *(dynamic_cast<const PlayerStateList*>(&_playerStateList));
-	const PlayerState currentPlayer = *(dynamic_cast<const PlayerState*>(&_currentPlayer));
+	const PlayerState currentPlayer = *(std::dynamic_pointer_cast<PlayerState>(_playerStates[curPlayerPosition]));
 
 	static CDynamicProgrammingStrategy strategy(map, currentPlayer);
 	auto step = strategy.GetNextPosition();
@@ -50,10 +47,6 @@ int DynamicProgrammingStrategyFunc(const IMap &_map, const IPlayerStateList &_pl
 
 IPlayerState* GetPlayerState(int x, int y, int xVelocity, int yVelocity) {
 	return new PlayerState(x, y, xVelocity, yVelocity);
-}
-
-IPlayerStateList* GetPlayerStateList() {
-	return new PlayerStateList();
 }
 
 IMap* GetMap() {
