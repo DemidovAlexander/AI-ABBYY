@@ -1,0 +1,11 @@
+﻿Build started 08.11.2015 21:40:21.
+     1>Project "C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\AITest\AITest.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\AITest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\AITest.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\AITest.lib" /MACHINE:X86 Debug\main.obj
+         "C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.lib"
+     1>LINK : fatal error LNK1104: cannot open file 'C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.lib'
+     1>Done Building Project "C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\AITest\AITest.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.12
