@@ -62,7 +62,7 @@ int CDynamicProgrammingStrategy::findMinStepCount(PlayerState* optimalFinish) co
     int minStepCount = -1;
 
 	for (int x = 0; x < map.sizeOnXaxis(); ++x) {
-		for (int y = 0; y < map.sizeOnYaxis(); ++x) {
+		for (int y = 0; y < map.sizeOnYaxis(); ++y) {
 			int currentStepCount = minPath.FindMinStepCountToPoint(x, y, optimalFinish);
 
 			if (currentStepCount != -1 && (minStepCount == -1 || currentStepCount < minStepCount)) {
