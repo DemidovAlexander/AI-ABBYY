@@ -6,17 +6,24 @@
 >> IPlayerState
 
 Factory-функции для них:
->> GetMap()
-
 >> GetPlayerState(int x, int y, int xVelocity, int yVelocity)
 
+Дефолтная карта:
+>> GetMap()
+
+Карта, заполняемая данными из inputCells, 
+с финишной линией, задаваемой двумя точками _leftFinishPoint, _rightFinishPoint
+>> GetMap(const std::vector< std::vector < int > > &inputCells,
+>> 	const std::pair< int, int > &_leftFinishPoint,
+>> 	const std::pair< int, int > &_rightFinishPoint)
+
 Функция стратегии:
->> StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
+>> int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
 
 Здесь _playerStates - вектор указателей на PlayerState каждого из игроков, а curPlayerPosition - индекс игрока, совершающего ход.
 
+StrategyFunc возвращает позицию (1-9) следующего хода для текущего игрока.
 
-Требуется изменение работы AI под установленные командой движка требования, которые можно посмотреть здесь https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
+Требования, установленные командой движка можно посмотреть здесь https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
 
-После доработки алгоритмов соответствующие изменения будут внесены в конструктор карты, вызываемый из factory-функции GetMap().
 

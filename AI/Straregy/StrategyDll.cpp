@@ -86,15 +86,14 @@ int DynamicProgrammingStrategyFunc(const Map &map, const PlayerState &currentPla
 	return (int)GetMovementDirection(currentPlayer.GetX() - step.first, currentPlayer.GetY() - step.second);
 }
 
-int AStarStrategyFunc(const Map &map, const PlayerState &currentPlayer){
-	fillAStarMap(std::shared_ptr<Map>(&map));
+int AStarStrategyFunc(const Map &map, const PlayerState &currentPlayer) {
+	fillAStarMap(map);
 	AStarStrategyOnYAGSBPL aStarStrategyOnYAGSBPL;
 	SNode start(currentPlayer.GetX(), currentPlayer.GetY(), currentPlayer.GetXVelocity(), currentPlayer.GetYVelocity());
 	SNode finish(1,1,1,1); // нужно задать финишную линюю
 	SNode step = aStarStrategyOnYAGSBPL.searchPath(start, finish);
 	return (int)GetMovementDirection(currentPlayer.GetX() - step.position.first, currentPlayer.GetY() - step.position.second);
 }
-
 
 int StrategyFunc(const IMap &_map, const std::vector< std::shared_ptr<IPlayerState> > &_playerStates, int curPlayerPosition){
 	Map map = /*PutPlayersOnMap(*/*(dynamic_cast<const Map*>(&_map))/*, _playerStates, curPlayerPosition)*/;

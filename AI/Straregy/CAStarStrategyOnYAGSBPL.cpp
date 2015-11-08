@@ -12,11 +12,10 @@
 #include "planners/A_star.h"
 
 // ЭТА ШТУКА ДОЛЖНА ГДЕ-ТО ЗАПОЛНЯТЬСЯ!!!!
-std::shared_ptr< Map > aStarStaticMap;
+static std::shared_ptr<const Map > aStarStaticMap;
 
-void fillAStarMap(std::shared_ptr< Map > map)
-{
-	aStarStaticMap = map;
+void fillAStarMap(const Map &map) {
+	const std::shared_ptr<const Map > aStarStaticMap = std::shared_ptr<const Map >(&map);
 }
 
 int getHashBin(SNode& node) {

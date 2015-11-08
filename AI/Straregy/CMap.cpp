@@ -61,7 +61,7 @@ bool Map::canPlayerStayOnCell(int x, int y) const {
     }
 }
 
-bool Map::canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::vector< IPlayerState > players) const {
+bool Map::canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, const std::vector< IPlayerState > &players) const {
     if (x < 0 || y < 0 || x >= xSize || y >= ySize) {
         return false;
     }
@@ -165,7 +165,7 @@ void Map::fillMapWithDefaultData() {
 	rightFinishPoint = std::make_pair(DEFAULT_X_SIZE - 1, DEFAULT_Y_SIZE - 2);
 }
 
-void Map::print(std::vector< IPlayerState > players) const {
+void Map::print(const std::vector< IPlayerState > &players) const {
     for (int i = 0; i < xSize; ++i) {
         for (int j = 0; j < ySize; ++j) {
             for (int p = 0; p < players.size(); ++p) {
@@ -215,13 +215,18 @@ bool Map::intersectFinishLine(int xFirst, int yFirst, int xSecond, int ySecond) 
 		&& intersect(yFirst, ySecond, leftFinishPoint.second, rightFinishPoint.second)
 		&& (orientedArea(xFirst, yFirst, xSecond, ySecond,
 			leftFinishPoint.first, leftFinishPoint.second) * orientedArea(xFirst, yFirst,
-				xSecond, ySecond, rightFinishPoint.first, rightFinishPoint.second) <= epsilon)
+				xSecond, ySecond, rightFinishPoint.first, rightFinishPoint.second) <= 0)
 		&& (orientedArea(leftFinishPoint.first, leftFinishPoint.second, rightFinishPoint.first, rightFinishPoint.second,
 			xFirst, yFirst) * orientedArea(leftFinishPoint.first, leftFinishPoint.second,
-				rightFinishPoint.first, rightFinishPoint.second, xSecond, ySecond) <= epsilon));
+				rightFinishPoint.first, rightFinishPoint.second, xSecond, ySecond) <= 0));
 }
 
 bool Map::wrongFinishLineIntersection(int xFirst, int yFirst, int xSecond, int ySecond) const {
+	if (intersectFinishLine(xFirst, yFirst, xSecond, ySecond)) {
+		return (orientedArea(xFirst, yFirst, leftFinishPoint.first, leftFinishPoint.second,
+			rightFinishPoint.first, rightFinishPoint.second) > 0);
+	}
+
 	return false;
 }
 

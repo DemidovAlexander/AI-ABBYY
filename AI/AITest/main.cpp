@@ -16,7 +16,7 @@ int main() {
 	HINSTANCE hinstLib = LoadLibrary(TEXT("StrategyDLL.dll"));
 	STRATEGY_PROC StrategyFunc = (STRATEGY_PROC)GetProcAddress(hinstLib, "StrategyFunc");
 	PLAYER_STATE_FACTORY_PROC GetPlayerState = (PLAYER_STATE_FACTORY_PROC)GetProcAddress(hinstLib, "GetPlayerState");
-	MAP_DEFAULT_FACTORY_PROC GetDefaultMap = (MAP_DEFAULT_FACTORY_PROC)GetProcAddress(hinstLib, "GetMap");
+	MAP_DEFAULT_FACTORY_PROC GetDefaultMap = (MAP_DEFAULT_FACTORY_PROC)GetProcAddress(hinstLib, "GetDefaultMap");
 
 	// Map map;
 	std::shared_ptr<IMap> mapPtr(GetDefaultMap());

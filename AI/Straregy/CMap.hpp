@@ -40,18 +40,18 @@ public:
     const size_t sizeOnXaxis() const;
     const size_t sizeOnYaxis() const;
     
-    std::vector< int > &operator[](int i);
+	std::vector< int > &operator[](int i);
 	const std::vector< int > &operator[](int i) const;
     
     bool canPlayerStayOnCell(int x, int y) const;
     bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const;
-    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::vector< IPlayerState > players) const;
+    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, const std::vector< IPlayerState > &players) const;
 	bool intersectFinishLine(int xFirst, int yFirst, int xSecond, int ySecond) const;
 
 	const std::pair< int, int >& GetLeftFinishPoint() const;
 	const std::pair< int, int >& GetRightFinishPoint() const;
 
-    void print(std::vector< IPlayerState > players) const;
+    void print(const std::vector< IPlayerState > &players) const;
 };
 
 #endif /* CMap_hpp */
