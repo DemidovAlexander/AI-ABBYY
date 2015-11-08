@@ -1,3 +1,4 @@
+#pragma once
 #include <Windows.h>
 
 BOOL __stdcall DllMain(HMODULE hModule,

@@ -1,5 +1,6 @@
 ﻿// Author: Evgeny Chernigovsky
 // Description:
+#pragma once
 
 #include <stdexcept>
 #include "CDynamicProgrammingStrategy.h"

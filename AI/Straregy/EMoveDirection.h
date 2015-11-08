@@ -1,5 +1,6 @@
 ﻿// Author: Evgeny Chernigovsky
 // Description: 
+#pragma once
 
 #ifndef AI_ABBYY_EMOVEDIRECTION_H
 #define AI_ABBYY_EMOVEDIRECTION_H

@@ -1,5 +1,6 @@
 // Author: Evgeny Chernigovsky
 // Description: CPlayerState to int map
+#pragma once
 
 #ifndef AI_ABBYY_CSTATEARRAY_H
 #define AI_ABBYY_CSTATEARRAY_H

@@ -1,5 +1,6 @@
 ﻿// Author: Evgeny Chernigovsky
 // Description: 
+#pragma once
 
 #include "CStateArray.h"
 

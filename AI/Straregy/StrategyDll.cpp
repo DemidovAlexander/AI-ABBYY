@@ -1,10 +1,12 @@
+#pragma once
 #include "StrategyDll.h"
 #include "IPlayerState.h"
 #include "IMap.h"
 #include "CPlayerState.hpp"
 #include "CMap.hpp"
-#include "EMoveDirection.h"
-//#include "CAStarStrategyOnYAGSBPL.hpp"
+#include "CAStarStrategyOnYAGSBPL.hpp"
+#include <time.h>
+
 
 Map  PutPlayersOnMap(const Map &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStateList, int CurrentPlayerIndex)
 {
@@ -33,44 +35,43 @@ Map  PutPlayersOnMap(const Map &_map, const std::vector<std::shared_ptr<IPlayerS
 	return res;
 }
 
-int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition) {
-	Map map = /*PutPlayersOnMap(*/*(dynamic_cast<const Map*>(&_map))/*, _playerStates, curPlayerPosition)*/;
-	const PlayerState currentPlayer = *(std::dynamic_pointer_cast<PlayerState>(_playerStates[curPlayerPosition]));
-
-	static CDynamicProgrammingStrategy strategy(map, currentPlayer);
-	auto step = strategy.GetNextPosition();
+EMovementDirection GetMovmentDirection(int dx, int dy)
+{
 	EMovementDirection direction;
-	int x = currentPlayer.GetX() - step.first;
-	int y = currentPlayer.GetY() - step.second;
-	if (x == 0 && y == 0) {
+	if (dx == 0 && dy == 0) {
 		direction = EMovementDirection::NONE;
 	}
-	else if (x == -1 && y == 0) {
+	else if (dx == -1 && dy == 0) {
 		direction = EMovementDirection::UP;
 	}
-	else if (x == -1 && y == 1) {
+	else if (dx == -1 && dy == 1) {
 		direction = EMovementDirection::UP_RIGHT;
 	}
-	else if (x == 0 && y == 1) {
+	else if (dx == 0 && dy == 1) {
 		direction = EMovementDirection::RIGHT;
 	}
-	else if (x == 1 && y == 1) {
+	else if (dx == 1 && dy == 1) {
 		direction = EMovementDirection::DOWN_RIGHT;
 	}
-	else if (x == 1 && y == 0) {
+	else if (dx == 1 && dy == 0) {
 		direction = EMovementDirection::DOWN;
 	}
-	else if (x == 1 && y == -1) {
+	else if (dx == 1 && dy == -1) {
 		direction = EMovementDirection::DOWN_LEFT;
 	}
-	else if (x == 0 && y == -1) {
+	else if (dx == 0 && dy == -1) {
 		direction = EMovementDirection::LEFT;
 	}
-	else if (x == -1 && y == -1) {
+	else if (dx == -1 && dy == -1) {
 		direction = EMovementDirection::UP_LEFT;
 	}
+	return direction;
+}
 
-	return (int)direction;
+int DynamicProgrammingStrategyFunc(Map &map, PlayerState currentPlayer) {
+	static CDynamicProgrammingStrategy strategy(map, currentPlayer);
+	auto step = strategy.GetNextPosition();
+	return (int)GetMovmentDirection(currentPlayer.GetX() - step.first, currentPlayer.GetY() - step.second);
 }
 
 IPlayerState* GetPlayerState(int x, int y, int xVelocity, int yVelocity) {
@@ -81,15 +82,23 @@ IMap* GetMap() {
 	return new Map();
 }
 
-/*
-int AStarStrategyFunc(const IMap &_map, const std::vector<PlayerState> &_playerStateList, int CurrentPlayerIndex)
-{
-aStarStaticMap = std::shared_ptr<Map>(new Map(PutPlayersOnMap(_map, _playerStateList, CurrentPlayerIndex)));
-AStarStrategyOnYAGSBPL aStarStrategyOnYAGSBPL;
 
-PlayerState currentPlayer = _playerStateList[CurrentPlayerIndex];
-SNode start(currentPlayer.GetX(), currentPlayer.GetY(), currentPlayer.GetXVelocity(), currentPlayer.GetYVelocity());
-SNode finish;
-aStarStrategyOnYAGSBPL.searchPath(start, finish);
-return 1;
-}*/
+int AStarStrategyFunc(Map &map,PlayerState currentPlayer){
+	fillAStarMap(std::shared_ptr<Map>(&map));
+	AStarStrategyOnYAGSBPL aStarStrategyOnYAGSBPL;
+	SNode start(currentPlayer.GetX(), currentPlayer.GetY(), currentPlayer.GetXVelocity(), currentPlayer.GetYVelocity());
+	SNode finish(1,1,1,1);//нужно задать финишную линюю
+	SNode step = aStarStrategyOnYAGSBPL.searchPath(start, finish);
+	return (int)GetMovmentDirection(currentPlayer.GetX() - step.position.first, currentPlayer.GetY() - step.position.second);
+}
+
+
+int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition){
+	Map map = /*PutPlayersOnMap(*/*(dynamic_cast<const Map*>(&_map))/*, _playerStates, curPlayerPosition)*/;
+	const PlayerState currentPlayer = *(std::dynamic_pointer_cast<PlayerState>(_playerStates[curPlayerPosition]));
+	srand(time(0));
+	/*if (rand() % 2)
+		return AStarStrategyFunc(map, currentPlayer);
+	else*/
+		return DynamicProgrammingStrategyFunc(map, currentPlayer);
+};

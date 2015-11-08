@@ -1,5 +1,6 @@
 ﻿// Author: Evgeny Chernigovsky
 // Description: Dynamic programming O(n^3) solution, where n is a linear size of map.
+#pragma once
 
 #ifndef AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H
 #define AI_ABBYY_CDYNAMICPROGRAMMINGSTRATEGY_H

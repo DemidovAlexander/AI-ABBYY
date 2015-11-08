@@ -5,6 +5,7 @@
 //  Created by Alexander Danilyak on 21/09/15.
 //  Copyright © 2015 Alexander Danilyak. All rights reserved.
 //
+#pragma once
 
 #include "CPlayerState.hpp"
 #include <stdexcept>

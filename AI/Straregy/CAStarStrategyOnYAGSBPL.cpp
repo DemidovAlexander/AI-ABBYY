@@ -14,6 +14,11 @@
 // ЭТА ШТУКА ДОЛЖНА ГДЕ-ТО ЗАПОЛНЯТЬСЯ!!!!
 std::shared_ptr< Map > aStarStaticMap;
 
+void fillAStarMap(std::shared_ptr< Map > map)
+{
+	aStarStaticMap = map;
+}
+
 int getHashBin(SNode& node) {
 	int nodeSum = node.position.first;
 	return nodeSum % std::max(aStarStaticMap->sizeOnXaxis(), aStarStaticMap->sizeOnYaxis());

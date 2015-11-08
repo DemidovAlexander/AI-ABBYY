@@ -5,6 +5,7 @@
 //  Created by Alexander Danilyak on 17/09/15.
 //  Copyright © 2015 Alexander Danilyak. All rights reserved.
 //
+#pragma once
 
 #define DEFAULT_X_SIZE 30
 #define DEFAULT_Y_SIZE 30
