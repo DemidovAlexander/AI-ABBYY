@@ -7,8 +7,8 @@
 //
 #pragma once
 
-#define DEFAULT_X_SIZE 30
-#define DEFAULT_Y_SIZE 30
+#define DEFAULT_X_SIZE 14
+#define DEFAULT_Y_SIZE 14
 
 #include "CMap.hpp"
 #include <stdexcept>
@@ -151,6 +151,10 @@ bool Map::hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) con
     return false;
 }
 
+void Map::setFinish(std::shared_ptr<std::vector<std::pair<int, int> > >  &finish)
+{
+	finishPoints = finish;
+}
 void Map::fillMapWithTestData() {
     for (int i = 0; i < DEFAULT_X_SIZE; ++i) {
         for (int j = 0; j < DEFAULT_Y_SIZE; ++j) {

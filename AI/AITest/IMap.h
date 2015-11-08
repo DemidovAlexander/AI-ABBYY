@@ -10,7 +10,7 @@ public:
 	virtual const std::pair<size_t, size_t> size() const = 0; // returs xSize, ySize pair
 	virtual const size_t sizeOnXaxis() const = 0;             // returs xSize
 	virtual const size_t sizeOnYaxis() const = 0;             // returs ySize
-
+	virtual void setFinish(std::shared_ptr<std::vector<std::pair<int, int> > >  &finish) = 0;
 	virtual std::vector< int > &operator[](int i) = 0;
 
 	virtual bool canPlayerStayOnCell(int x, int y) const = 0;

@@ -32,7 +32,7 @@ public:
     Map(const size_t xSize, const size_t ySize);
     Map(std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > inputCells,
         std::shared_ptr< std::vector< std::pair< int, int > > > inputFinishPoints);
-    
+	void setFinish(std::shared_ptr<std::vector<std::pair<int, int> > >  &finish);
     ~Map();
     
     const std::pair<size_t, size_t> size() const; // returs xSize, ySize pair
