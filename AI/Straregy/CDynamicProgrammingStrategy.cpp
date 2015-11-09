@@ -5,7 +5,6 @@
 #include <stdexcept>
 #include "CDynamicProgrammingStrategy.h"
 
-
 CDynamicProgrammingStrategy::CDynamicProgrammingStrategy(const Map &_map,
                                                          const PlayerState &_initialState)
     : map(_map)
@@ -59,23 +58,31 @@ void CDynamicProgrammingStrategy::calculatePaths() {
     }
 }
 
-int CDynamicProgrammingStrategy::findMinStepCount(PlayerState *optimalFinish) const {
+int CDynamicProgrammingStrategy::findMinStepCount(PlayerState* optimalFinish) const {
     int minStepCount = -1;
-    int x, y;
 
-    for (int i = 0; i < map.GetFinishPoints()->size(); ++i) {
-        x = map.GetFinishPoints()->at(i).first;
-        y = map.GetFinishPoints()->at(i).second;
-        int currentStepCount = minPath.FindMinStepCountToPoint(x, y, optimalFinish);
+	for (int x = 0; x < map.sizeOnXaxis(); ++x) {
+		for (int y = 0; y < map.sizeOnYaxis(); ++y) {
+			int currentStepCount = minPath.FindMinStepCountToPoint(x, y, optimalFinish);
 
-        if (currentStepCount != -1 && (minStepCount == -1 || currentStepCount < minStepCount)) {
-            minStepCount = currentStepCount;
-            optimalFinish->SetX(x);
-            optimalFinish->SetY(y);
-        }
-    }
+			if (currentStepCount != -1 && (minStepCount == -1 || currentStepCount < minStepCount)) {
+				PlayerState currentState = *optimalFinish;
+				currentState.SetX(x);
+				currentState.SetY(y);
 
-    return minStepCount;
+				if (map.intersectFinishLine(minPath.GetPreviousState(currentState).GetX(),
+					minPath.GetPreviousState(currentState).GetY(),
+					currentState.GetX(),
+					currentState.GetY()))
+				{
+					minStepCount = currentStepCount;
+					*optimalFinish = currentState;
+				}
+			}
+		}
+	}
+
+	return minStepCount;
 }
 
 void CDynamicProgrammingStrategy::findOptimalPath() {

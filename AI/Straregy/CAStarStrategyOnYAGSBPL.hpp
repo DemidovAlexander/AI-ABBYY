@@ -17,9 +17,9 @@
 
 class AStarStrategyOnYAGSBPL {
 public:
-	SNode searchPath(SNode& start, SNode& finish);
+	SNode searchPath(SNode &start, SNode &finish);
 };
 
+void fillAStarMap(const Map &map);
 
-void fillAStarMap(std::shared_ptr< Map > map);
 #endif /* CAStarStrategyOnYAGSBPL_hpp */

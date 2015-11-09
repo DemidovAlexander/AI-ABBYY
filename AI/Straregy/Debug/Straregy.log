@@ -1,0 +1,143 @@
+﻿Build started 09.11.2015 3:11:19.
+     1>Project "C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Straregy\Straregy.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt -std=gnu++14 CAStarStrategyOnYAGSBPL.cpp CDynamicProgrammingStrategy.cpp CMap.cpp CPlayerState.cpp CStateArray.cpp main.cpp StrategyDll.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=gnu++14'
+         StrategyDll.cpp
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.cpp(20): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.cpp(68): warning C4273: 'GetPlayerState': inconsistent dll linkage
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.h(14): note: see previous definition of 'GetPlayerState'
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.cpp(72): warning C4273: 'GetDefaultMap': inconsistent dll linkage
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.h(16): note: see previous definition of 'GetDefaultMap'
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.cpp(79): warning C4273: 'GetMap': inconsistent dll linkage
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.h(18): note: see previous definition of 'GetMap'
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.cpp(98): warning C4273: 'StrategyFunc': inconsistent dll linkage
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\strategydll.h(11): note: see previous definition of 'StrategyFunc'
+         main.cpp
+         CStateArray.cpp
+         CPlayerState.cpp
+         CMap.cpp
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(53): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(65): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(69): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(169): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(170): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(171): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(184): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cmap.cpp(191): warning C4018: '>=': signed/unsigned mismatch
+         CDynamicProgrammingStrategy.cpp
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cdynamicprogrammingstrategy.cpp(41): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cdynamicprogrammingstrategy.cpp(42): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cdynamicprogrammingstrategy.cpp(64): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\cdynamicprogrammingstrategy.cpp(65): warning C4018: '<': signed/unsigned mismatch
+         CAStarStrategyOnYAGSBPL.cpp
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(63): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(68): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.h(259): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.h(255): note: while compiling class template member function 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::~HashTableContainer(void)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(118): note: see reference to function template instantiation 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::~HashTableContainer(void)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.h(279): note: see reference to class template instantiation 'HashTableContainer<NodeType,CostType,PlannerSpecificVariables>' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.h(279): note: while compiling class template member function 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>::~GenericPlanner(void)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(117): note: see reference to function template instantiation 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>::~GenericPlanner(void)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.h(67): note: see reference to class template instantiation 'GenericPlanner<NodeType,CostType,A_star_variables<CostType>>' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(95): note: see reference to class template instantiation 'A_star_planner<SNode,double>' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(48): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(30): note: while compiling class template member function 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)'
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.h(107): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(198): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(121): note: while compiling class template member function 'void A_star_planner<SNode,double>::plan(void)'
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(97): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::plan(void)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(319): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(316): note: while compiling class template member function 'std::vector<std::vector<SNode,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> A_star_planner<SNode,double>::getPlannedPaths(void)'
+                 with
+                 [
+                     _Ty=SNode
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\castarstrategyonyagsbpl.cpp(99): note: see reference to function template instantiation 'std::vector<std::vector<SNode,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> A_star_planner<SNode,double>::getPlannedPaths(void)' being compiled
+                 with
+                 [
+                     _Ty=SNode
+                 ]
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(281): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(277): note: while compiling class template member function 'SearchGraphNode<NodeType,CostType,A_star_variables<CostType>> *HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::getNodeInHash(NodeType)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(51): note: see reference to function template instantiation 'SearchGraphNode<NodeType,CostType,A_star_variables<CostType>> *HashTableContainer<NodeType,CostType,PlannerSpecificVariables>::getNodeInHash(NodeType)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(30): note: while compiling class template member function 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)'
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.h(107): note: see reference to function template instantiation 'void A_star_planner<SNode,double>::init(GenericSearchGraphDescriptor<SNode,double> *,bool)' being compiled
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(55): warning C4018: '<': signed/unsigned mismatch
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(32): note: while compiling class template member function 'void HeapContainer<NodeType,CostType,PlannerSpecificVariables>::update(SearchGraphNode<NodeType,CostType,PlannerSpecificVariables> *,HeapContainer<NodeType,CostType,PlannerSpecificVariables>::BubbleDirection)'
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+         c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\planners\a_star.cpp(266): note: see reference to function template instantiation 'void HeapContainer<NodeType,CostType,PlannerSpecificVariables>::update(SearchGraphNode<NodeType,CostType,PlannerSpecificVariables> *,HeapContainer<NodeType,CostType,PlannerSpecificVariables>::BubbleDirection)' being compiled
+                 with
+                 [
+                     NodeType=SNode,
+                     CostType=double,
+                     PlannerSpecificVariables=A_star_variables<double>
+                 ]
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(57): warning C4018: '<': signed/unsigned mismatch
+     1>c:\7semester\industrialprog\race-ai\ai-abbyy\ai\straregy\yagsbpl_base.cpp(59): warning C4018: '<': signed/unsigned mismatch
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.lib" /MACHINE:X86 /DLL Debug\CAStarStrategyOnYAGSBPL.obj
+         Debug\CDynamicProgrammingStrategy.obj
+         Debug\CMap.obj
+         Debug\CPlayerState.obj
+         Debug\CStateArray.obj
+         Debug\main.obj
+         Debug\StrategyDll.obj
+            Creating library C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.lib and object C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.exp
+         Straregy.vcxproj -> C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Debug\StrategyDll.dll
+     1>Done Building Project "C:\7semester\IndustrialProg\Race-AI\AI-ABBYY\AI\Straregy\Straregy.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.44

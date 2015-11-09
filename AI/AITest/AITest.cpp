@@ -1,15 +1,14 @@
 #include "AITest.h"
-using namespace std;
 
 void AITest::calcFinish()
 {
 	finish.clear();
-	pair<double, double> d(finishEnd.first - finishBegin.first, finishEnd.second - finishBegin.second);
+	std::pair<double, double> d(finishEnd.first - finishBegin.first, finishEnd.second - finishBegin.second);
 	double l = sqrt(d.first*d.first + d.second*d.second);
 	d.first /= l;
 	d.second /= l;
 	for (int i = 0; i < l; ++i)
-		finish.push_back(pair<int, int>(finishBegin.first + d.first*i + 0.5, finishBegin.second + d.second*i + 0.5));
+		finish.push_back(std::pair<int, int>(finishBegin.first + d.first*i + 0.5, finishBegin.second + d.second*i + 0.5));
 }
 
 bool AITest::isFinish(int i, int j)
@@ -27,6 +26,7 @@ int AITest::isGamer(int i, int j)
 			return k;
 	return -1;
 }
+
 void AITest::draw() {
 	system("CLS");
 	for (int i = 0; i < map.size(); ++i)
@@ -37,14 +37,14 @@ void AITest::draw() {
 			if (k == -1)
 			{
 				if (isFinish(i, j))
-					cout << '@';
+					std::cout << '@';
 				else
-					cout << ((map[i][j] == 0) ? ' ' : '#');
+					std::cout << ((map[i][j] == 0) ? ' ' : '#');
 			}
 			else
-				cout << k;
+				std::cout << k;
 		}
-		cout << '\n';
+		std::cout << '\n';
 	}
 }
 
@@ -59,26 +59,26 @@ void AITest::ProcessState(int k, int dx, int dy)
 void AITest::getStep()
 {
 	int dx, dy;
-	cout << "write dx:";
-	cin >> dx;
-	cout << "write dy:";
-	cin >> dy;
+	std::cout << "write dx:";
+	std::cin >> dx;
+	std::cout << "write dy:";
+	std::cin >> dy;
 	ProcessState(0, dx, dy);
 }
 
-void AITest::readMap(string mapFile)
+void AITest::readMap(std::string mapFile)
 {
 	int n, m;
-	ifstream f(mapFile);
+	std::ifstream f(mapFile);
 	int gamsersCount;
 	f >> gamsersCount;
-	velocity.resize(gamsersCount, pair<int, int>(0, 0));
+	velocity.resize(gamsersCount, std::pair<int, int>(0, 0));
 	positions.resize(gamsersCount);
 	for (int i = 0; i < positions.size(); ++i)
 		f >> positions[i].first >> positions[i].second;
 	f >> n >> m;
 	char c;
-	map.resize(n, vector<int>(m));
+	map.resize(n, std::vector<int>(m));
 	for (int i = 0; i < n; ++i)
 	{
 		for (int j = 0; j < m; ++j)
@@ -93,18 +93,9 @@ void AITest::readMap(string mapFile)
 
 };
 
-
 void AITest::doAI(int k)
 {
-#ifdef OLDAPI
-	std::shared_ptr<IMap> mapPtr(GetMap());
-	mapPtr->setFinish(std::shared_ptr< std::vector<std::pair<int, int> > >(new std::vector<std::pair<int, int> >(finish)));
-	for (int i = 0; i < map.size(); ++i)
-		for (int j = 0; j < map[i].size(); ++j)
-			(*mapPtr)[i][j] = (map[i][j] == 0) ? 0 : 1;
-#else
 	std::shared_ptr<IMap> mapPtr(GetMap(map,finishBegin,finishEnd));
-#endif
 
 	// PlayerState currentState(0, 0, 0, 0);
 	std::vector<std::shared_ptr<IPlayerState>> playerStates;
@@ -146,7 +137,7 @@ void AITest::doAI(int k)
 		ProcessState(k, 0, 0);
 }
 
-void AITest::doTest(string mapFile)
+void AITest::doTest(std::string mapFile)
 {
 	readMap(mapFile);
 	while (1)

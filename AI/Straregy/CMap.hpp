@@ -1,11 +1,3 @@
-//
-//  CMap.hpp
-//  AI-ABBYY
-//
-//  Created by Alexander Danilyak on 17/09/15.
-//  Copyright © 2015 Alexander Danilyak. All rights reserved.
-//
-
 #ifndef CMap_hpp
 #define CMap_hpp
 
@@ -17,12 +9,19 @@
 
 class Map : public IMap {
 private:
-    std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > cells;
+    std::vector< std::vector < int > > cells;
     size_t xSize;
     size_t ySize;
     
-    std::shared_ptr< std::vector< std::pair< int, int > > > finishPoints;
-    
+	std::pair< int, int > leftFinishPoint;
+	std::pair< int, int > rightFinishPoint;
+
+	void fillMapWithDefaultData();
+
+	bool intersect(int a, int b, int c, int d) const;
+	int orientedArea(int ax, int ay, int bx, int by, int cx, int cy) const;
+	bool wrongFinishLineIntersection(int xFirst, int yFirst, int xSecond, int ySecond) const;
+
 public:
     const int EMPTY_CELL = 0;
     const int FILLED_CELL = 1;
@@ -33,27 +32,29 @@ public:
     Map(std::shared_ptr< std::vector< std::shared_ptr< std::vector < int > > > > inputCells,
         std::shared_ptr< std::vector< std::pair< int, int > > > inputFinishPoints);
 	void setFinish(std::shared_ptr<std::vector<std::pair<int, int> > >  &finish);
+
+	Map::Map(const std::vector< std::vector < int > > &inputCells,
+		const std::pair< int, int > &_leftFinishPoint,
+		const std::pair< int, int > &_rightFinishPoint);
+
     ~Map();
     
-    const std::pair<size_t, size_t> size() const; // returs xSize, ySize pair
-    const size_t sizeOnXaxis() const;             // returs xSize
-    const size_t sizeOnYaxis() const;             // returs ySize
+    const std::pair<size_t, size_t> size() const;
+    const size_t sizeOnXaxis() const;
+    const size_t sizeOnYaxis() const;
     
-    std::vector< int > &operator[](int i);
-	const std::vector< int > &operator[](int i)const;
+	std::vector< int > &operator[](int i);
+	const std::vector< int > &operator[](int i) const;
     
     bool canPlayerStayOnCell(int x, int y) const;
     bool hasBarrierOnPath(int xFirst, int yFirst, int xSecond, int ySecond) const;
-    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, std::shared_ptr< std::vector< IPlayerState > > players) const;
+    bool canPlayerStayOnCellLookOnOtherPlayers(int x, int y, int playerID, const std::vector< IPlayerState > &players) const;
+	bool intersectFinishLine(int xFirst, int yFirst, int xSecond, int ySecond) const;
 
-    const std::shared_ptr< std::vector< std::pair< int, int > > > GetFinishPoints() const;
-    
-    // methods for testing    
-    // only for default size map!
-    void fillMapWithTestData();
-    void fillMapWithTestData2();
-    
-    void print(std::shared_ptr< std::vector< IPlayerState > > players);
+	const std::pair< int, int >& GetLeftFinishPoint() const;
+	const std::pair< int, int >& GetRightFinishPoint() const;
+
+    void print(const std::vector< IPlayerState > &players) const;
 };
 
 #endif /* CMap_hpp */

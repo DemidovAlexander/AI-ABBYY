@@ -7,33 +7,26 @@
 #include "IPlayerState.h"
 #include "IMap.h"
 #include <windows.h>
-#define OLDAPI
-using namespace std;
-
 
 typedef int(__cdecl *STRATEGY_PROC)(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
 typedef IPlayerState*(__cdecl *PLAYER_STATE_FACTORY_PROC)(int x, int y, int xVelocity, int yVelocity);
-#ifdef OLDAPI
-typedef IMap*(__cdecl *MAP_FACTORY_PROC)();
-#else
 typedef IMap*(__cdecl *MAP_FACTORY_PROC)(const std::vector< std::vector < int > > &inputCells,
 	const std::pair< int, int > &_leftFinishPoint,
 	const std::pair< int, int > &_rightFinishPoint);
-#endif
+
 class AITest
 {
 	HINSTANCE hinstLib;
 	STRATEGY_PROC StrategyFunc;
 	PLAYER_STATE_FACTORY_PROC GetPlayerState;
 	MAP_FACTORY_PROC GetMap;
-	vector<vector<int> > map;
-	vector<pair<int, int> > positions;
-	vector<pair<int, int> > velocity;
-	vector<pair<int, int> > finish;
-	pair<int, int> finishBegin;
-	pair<int, int> finishEnd;
-
-
+	std::vector<std::vector<int> > map;
+	std::vector<std::pair<int, int> > positions;
+	std::vector<std::pair<int, int> > velocity;
+	std::vector<std::pair<int, int> > finish;
+	std::pair<int, int> finishBegin;
+	std::pair<int, int> finishEnd;
+	
 	void calcFinish();
 
 	bool isFinish(int i, int j);
@@ -44,7 +37,7 @@ class AITest
 
 	void getStep();
 
-	void readMap(string mapFile);
+	void readMap(std::string mapFile);
 
 
 	void doAI(int k);
@@ -58,5 +51,5 @@ public:
 	map - n rows  m cols
 	FinishBegin.x FinishBegin.y FinishEnd.x FinishEnd.y
 	*/
-	void doTest(string mapFile = "map.txt");
+	void doTest(std::string mapFile = "map.txt");
 };

@@ -1,22 +1,28 @@
-В данном репозитории находится динамическая библиотека AI для игры "Гонки".
+Р’ РґР°РЅРЅРѕРј СЂРµРїРѕР·РёС‚РѕСЂРёРё РЅР°С…РѕРґРёС‚СЃСЏ РґРёРЅР°РјРёС‡РµСЃРєР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° AI РґР»СЏ РёРіСЂС‹ "Р“РѕРЅРєРё".
 
-С командой движка был обговорен API библиотеки. В движок экспортируются классы, описываемые интерфейсами:
+РЎ РєРѕРјР°РЅРґРѕР№ РґРІРёР¶РєР° Р±С‹Р» РѕР±РіРѕРІРѕСЂРµРЅ API Р±РёР±Р»РёРѕС‚РµРєРё. Р’ РґРІРёР¶РѕРє СЌРєСЃРїРѕСЂС‚РёСЂСѓСЋС‚СЃСЏ РєР»Р°СЃСЃС‹, РѕРїРёСЃС‹РІР°РµРјС‹Рµ РёРЅС‚РµСЂС„РµР№СЃР°РјРё:
 >> IMap
 
 >> IPlayerState
 
-Factory-функции для них:
->> GetMap()
-
+Factory-С„СѓРЅРєС†РёРё РґР»СЏ РЅРёС…:
 >> GetPlayerState(int x, int y, int xVelocity, int yVelocity)
 
-Функция стратегии:
->> StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
+Р”РµС„РѕР»С‚РЅР°СЏ РєР°СЂС‚Р°:
+>> GetMap()
 
-Здесь _playerStates - вектор указателей на PlayerState каждого из игроков, а curPlayerPosition - индекс игрока, совершающего ход.
+РљР°СЂС‚Р°, Р·Р°РїРѕР»РЅСЏРµРјР°СЏ РґР°РЅРЅС‹РјРё РёР· inputCells, 
+СЃ С„РёРЅРёС€РЅРѕР№ Р»РёРЅРёРµР№, Р·Р°РґР°РІР°РµРјРѕР№ РґРІСѓРјСЏ С‚РѕС‡РєР°РјРё _leftFinishPoint, _rightFinishPoint
+>> GetMap(const std::vector< std::vector < int > > &inputCells,
+>> 	const std::pair< int, int > &_leftFinishPoint,
+>> 	const std::pair< int, int > &_rightFinishPoint)
 
+Р¤СѓРЅРєС†РёСЏ СЃС‚СЂР°С‚РµРіРёРё:
+>> int StrategyFunc(const IMap &_map, const std::vector<std::shared_ptr<IPlayerState>> &_playerStates, int curPlayerPosition);
 
-Требуется изменение работы AI под установленные командой движка требования, которые можно посмотреть здесь https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
+Р—РґРµСЃСЊ _playerStates - РІРµРєС‚РѕСЂ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° PlayerState РєР°Р¶РґРѕРіРѕ РёР· РёРіСЂРѕРєРѕРІ, Р° curPlayerPosition - РёРЅРґРµРєСЃ РёРіСЂРѕРєР°, СЃРѕРІРµСЂС€Р°СЋС‰РµРіРѕ С…РѕРґ.
 
-После доработки алгоритмов соответствующие изменения будут внесены в конструктор карты, вызываемый из factory-функции GetMap().
+StrategyFunc РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ (1-9) СЃР»РµРґСѓСЋС‰РµРіРѕ С…РѕРґР° РґР»СЏ С‚РµРєСѓС‰РµРіРѕ РёРіСЂРѕРєР°.
+
+РўСЂРµР±РѕРІР°РЅРёСЏ, СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РєРѕРјР°РЅРґРѕР№ РґРІРёР¶РєР° РјРѕР¶РЅРѕ РїРѕСЃРјРѕС‚СЂРµС‚СЊ Р·РґРµСЃСЊ https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
 
