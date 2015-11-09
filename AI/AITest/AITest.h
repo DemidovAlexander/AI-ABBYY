@@ -38,8 +38,7 @@ class AITest
 	void getStep();
 
 	void readMap(std::string mapFile);
-
-
+	
 	void doAI(int k);
 
 public:

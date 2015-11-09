@@ -12,7 +12,7 @@ Factory-функции для них:
 >> GetMap()
 
 Карта, заполняемая данными из inputCells, 
-с финишной линией, задаваемой двумя точками _leftFinishPoint, _rightFinishPoint
+с финишной линией, задаваемой двумя точками _leftFinishPoint, _rightFinishPoint:
 >> GetMap(const std::vector< std::vector < int > > &inputCells,
 >> 	const std::pair< int, int > &_leftFinishPoint,
 >> 	const std::pair< int, int > &_rightFinishPoint)
@@ -24,5 +24,4 @@ Factory-функции для них:
 
 StrategyFunc возвращает позицию (1-9) следующего хода для текущего игрока.
 
-Требования, установленные командой движка можно посмотреть здесь https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
-
+Требования, установленные командой движка можно посмотреть здесь: https://github.com/ngc696/PromProg_Race_CardRedactor/issues/1
